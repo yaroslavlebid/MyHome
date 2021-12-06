@@ -1,4 +1,4 @@
-package yaroslavlebid.apps.myhome.ui.login.ui.login
+package yaroslavlebid.apps.myhome.ui.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import com.google.firebase.auth.FirebaseAuth
 import timber.log.Timber
 import yaroslavlebid.apps.myhome.databinding.ActivityLoginBinding
 import yaroslavlebid.apps.myhome.ui.home.HomeActivity
-import yaroslavlebid.apps.myhome.ui.login.ui.login.sign_in.SignInFragment
+import yaroslavlebid.apps.myhome.ui.login.sign_in.SignInFragment
 
 class LoginActivity : AppCompatActivity() {
 

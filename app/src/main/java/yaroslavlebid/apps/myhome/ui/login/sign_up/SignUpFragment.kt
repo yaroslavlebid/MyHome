@@ -1,10 +1,9 @@
-package yaroslavlebid.apps.myhome.ui.login.ui.login.sign_up
+package yaroslavlebid.apps.myhome.ui.login.sign_up
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.FragmentSignUpBinding
