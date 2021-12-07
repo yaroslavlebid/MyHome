@@ -1,5 +1,6 @@
 package yaroslavlebid.apps.myhome.ui.login.sign_up
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,9 +17,6 @@ class SignUpViewModel(
     private val _registrationStatus = MutableLiveData<RegistrationEvent>()
     val registrationStatus: LiveData<RegistrationEvent> = _registrationStatus
 
-    private val _fillUserProfileStatus = MutableLiveData<RegistrationEvent>()
-    val fillUserProfileStatus: LiveData<RegistrationEvent> = _fillUserProfileStatus
-
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
@@ -31,8 +29,16 @@ class SignUpViewModel(
                 }
                 .addOnSuccessListener { result ->
                     result.user?.let { firebaseUser ->
-                        userRepository.addUserToDb(User(id = firebaseUser.uid, email = email))
+                        userRepository.addUserToDb(
+                            User(
+                                id = firebaseUser.uid,
+                                email = email,
+                                registrationTimestamp = System.currentTimeMillis()
+                            )
+                        )
                         _registrationStatus.value = RegistrationEvent(RegistrationStatus.SUCCESS)
+                        Timber.d("Success register user with id: ${firebaseUser.uid}}")
+                        return@addOnSuccessListener
                     }.run {
                         _registrationStatus.value = RegistrationEvent(
                             RegistrationStatus.ERROR_DEFAULT,
@@ -59,50 +65,10 @@ class SignUpViewModel(
         }
     }
 
-    fun fillUserProfile(
-        firstName: String,
-        lastName: String,
-        phoneNumber: String,
-        photoUrl: String,
-        dateOfBirth: String
-    ) {
-        val firebaseCurrentUser = authRepository.getCurrentFirebaseUser()
-        if (firebaseCurrentUser != null) {
-            _isLoading.value = true
-            userRepository.getUserById(firebaseCurrentUser.uid)
-                .addOnSuccessListener { dataSnapshot ->
-                    var user = dataSnapshot.toObject(User::class.java)
-                    if (user == null) {
-                        _fillUserProfileStatus.value = RegistrationEvent(
-                            RegistrationStatus.ERROR_DEFAULT,
-                            RegistrationStatusMap.getErrorMessage(RegistrationStatus.ERROR_DEFAULT)
-                        )
-                        return@addOnSuccessListener
-                    } else {
-                        user.lastName = lastName
-                        user.dateOfBirth = dateOfBirth
-                        user.firstName = firstName
-                        user.phoneNumber = phoneNumber
-                        user.photoUrl = photoUrl
-                        userRepository.updateUser(user).addOnSuccessListener {
-                            Timber.d("User ${user.id} updated successful!")
-                            _fillUserProfileStatus.value =
-                                RegistrationEvent(RegistrationStatus.SUCCESS)
-                        }.addOnFailureListener {
-                            Timber.e("Error, can't update user profile")
-                        }
-                    }
-                }.addOnFailureListener {
-                    Timber.e("Error, when try to get user", it)
-                }.addOnCompleteListener {
-                    _isLoading.value = false
-                }
-        }
-
-    }
 
     private fun isUserRegistrationDataValid(email: String, password: String): Boolean {
         if (email.isEmpty()) {
+            Timber.d("Email is empty")
             val status = RegistrationStatus.ERROR_EMAIL_EMPTY
             _registrationStatus.value =
                 RegistrationEvent(status, RegistrationStatusMap.getErrorMessage(status))
@@ -110,6 +76,7 @@ class SignUpViewModel(
         }
 
         if (password.isEmpty()) {
+            Timber.d("Password is empty")
             val status = RegistrationStatus.ERROR_PASSWORD_EMPTY
             _registrationStatus.value =
                 RegistrationEvent(status, RegistrationStatusMap.getErrorMessage(status))
@@ -117,6 +84,7 @@ class SignUpViewModel(
         }
 
         if (password.length < 6) {
+            Timber.d("Password too short")
             val status = RegistrationStatus.ERROR_PASSWORD_TOO_SHORT
             _registrationStatus.value =
                 RegistrationEvent(status, RegistrationStatusMap.getErrorMessage(status))

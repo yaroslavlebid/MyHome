@@ -10,7 +10,7 @@ import yaroslavlebid.apps.myhome.data.User
 private const val COLLECTION_USERS = "users"
 
 interface UserRepository {
-    fun addUserToDb(user: User) : Task<DocumentReference>
+    fun addUserToDb(user: User) : Task<Void>
 
     fun getUserById(uid: String): Task<DocumentSnapshot>
 
@@ -18,7 +18,7 @@ interface UserRepository {
 }
 
 class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository{
-    override fun addUserToDb(user: User) = db.collection(COLLECTION_USERS).add(user)
+    override fun addUserToDb(user: User) = db.collection(COLLECTION_USERS).document(user.id).set(user)
 
     override fun getUserById(uid: String) = db.collection(COLLECTION_USERS).document(uid).get()
 

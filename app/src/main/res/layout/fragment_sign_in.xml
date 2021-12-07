@@ -6,11 +6,12 @@
 
     <EditText
         android:id="@+id/email"
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="E-mail"
         app:layout_constraintWidth_percent=".7"
-        app:layout_constraintVertical_bias=".3"
+        app:layout_constraintVertical_bias=".25"
         app:layout_constraintHorizontal_bias=".5"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -23,6 +24,7 @@
 
     <EditText
         android:id="@+id/password"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"

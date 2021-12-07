@@ -4,7 +4,6 @@ import com.google.firebase.firestore.DocumentId
 import java.util.*
 
 data class User(
-    @DocumentId
     val id: String = "",
     var firstName: String = "",
     var lastName: String = "",

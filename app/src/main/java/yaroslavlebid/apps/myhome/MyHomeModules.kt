@@ -9,9 +9,11 @@ import yaroslavlebid.apps.myhome.repository.AuthRepositoryImpl
 import yaroslavlebid.apps.myhome.repository.UserRepository
 import yaroslavlebid.apps.myhome.repository.UserRepositoryImpl
 import yaroslavlebid.apps.myhome.ui.login.sign_up.SignUpViewModel
+import yaroslavlebid.apps.myhome.ui.profile.ProfileViewModel
 
 val viewModelModule = module {
-    viewModel { SignUpViewModel(get()) }
+    viewModel { SignUpViewModel(get(), get()) }
+    viewModel { ProfileViewModel(get(), get()) }
 }
 
 val repositoryModule = module {

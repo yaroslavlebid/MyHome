@@ -8,6 +8,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.FragmentSignUpBinding
 import yaroslavlebid.apps.myhome.ui.home.HomeActivity
+import yaroslavlebid.apps.myhome.ui.profile.ProfileSetupFragment
 
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
@@ -40,7 +41,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
         signUpViewModel.registrationStatus.observe(viewLifecycleOwner) { registrationResult ->
             if (registrationResult.status == RegistrationStatus.SUCCESS) {
-                activity?.let { HomeActivity.start(it) }
+                activity?.let { showProfileSetupFragment() }
             } else {
                 activity?.let {
                     Toast.makeText(it, registrationResult.errorMessage, Toast.LENGTH_SHORT).show()
@@ -48,4 +49,9 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             }
         }
     }
+
+    private fun showProfileSetupFragment() = parentFragmentManager.beginTransaction()
+        .replace(R.id.fragmentContainer, ProfileSetupFragment())
+        .addToBackStack(null)
+        .commit()
 }
