@@ -8,7 +8,7 @@ data class User(
     var firstName: String = "",
     var lastName: String = "",
     var phoneNumber: String = "",
-    val email: String = "",
+    var email: String = "",
     var photoUrl: String = "",
     var dateOfBirth: String = "",
     val registrationTimestamp: Long = 0L

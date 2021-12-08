@@ -3,8 +3,11 @@ package yaroslavlebid.apps.myhome.ui.login
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import org.koin.android.ext.android.inject
+import org.koin.java.KoinJavaComponent.inject
 import timber.log.Timber
 import yaroslavlebid.apps.myhome.databinding.ActivityLoginBinding
+import yaroslavlebid.apps.myhome.repository.UserRepository
 import yaroslavlebid.apps.myhome.ui.home.HomeActivity
 import yaroslavlebid.apps.myhome.ui.login.sign_in.SignInFragment
 

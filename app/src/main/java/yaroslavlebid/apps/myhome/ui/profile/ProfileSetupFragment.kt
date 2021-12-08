@@ -23,8 +23,10 @@ import java.io.File
 import com.yanzhenjie.album.AlbumFile
 
 import androidx.annotation.NonNull
+import androidx.core.widget.doAfterTextChanged
 import com.bumptech.glide.Glide
 import yaroslavlebid.apps.myhome.utils.setDrawableImage
+import yaroslavlebid.apps.myhome.utils.setImageFromUrl
 
 
 class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
@@ -39,6 +41,8 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
 
         initListenters(binding)
         initObservers(binding)
+
+        profileViewModel.initUser()
     }
 
     private fun initListenters(binding: FragmentProfileSetupBinding) {
@@ -51,18 +55,19 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
                 pickProfileImage()
             }
 
-
             confirmButton.setOnClickListener {
-                profileViewModel.setUpProfile(
-                    firstName.text.toString(),
-                    lastName.text.toString(),
-                    phoneNumber.text.toString(),
-                    profileImage.toString(),
-                    dateOfBirth.toString()
+                profileViewModel.updateUser(
+                    firstName = firstName.text.toString(),
+                    lastName = lastName.text.toString(),
+                    phoneNumber = phoneNumber.text.toString(),
+                    dateOfBirth = dateOfBirth.text.toString()
                 )
+                profileViewModel.confirmProfile()
             }
         }
     }
+
+    var temporaryPath = ""
 
     private fun initObservers(binding: FragmentProfileSetupBinding) {
         profileViewModel.isLoading.observe(viewLifecycleOwner) {
@@ -73,6 +78,28 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
         profileViewModel.canConfirmProfile.observe(viewLifecycleOwner) {
             if (it) HomeActivity.start(requireActivity())
         }
+
+        profileViewModel.isProfileImageLoaded.observe(viewLifecycleOwner) { result ->
+            if (result) binding.profileImage.setLocalImage(Uri.fromFile(File(temporaryPath)), true)
+            else {
+                Toast.makeText(
+                    requireContext(),
+                    "Can't upload image, try later",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+
+        profileViewModel.userLiveData.observe(viewLifecycleOwner) { user ->
+            if (!user.isProfileOnlyWithEmail()) {
+                binding.run {
+                    profileImage.setImageFromUrl(user.photoUrl, true)
+                    firstName.setText(user.firstName)
+                    lastName.setText(user.lastName)
+                    // todo: set other fields
+                }
+            }
+        }
     }
 
     private fun pickProfileImage() {
@@ -80,7 +107,10 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
             .singleChoice()
             .camera(true)
             .onResult {
-                binding.profileImage.setLocalImage(Uri.fromFile(File(it.first().path)), true)
+                it.firstOrNull()?.let {
+                    profileViewModel.loadProfileImage(it.path)
+                    temporaryPath = it.path
+                }
             }
             .onCancel {
                 Timber.d("Canceled select image")

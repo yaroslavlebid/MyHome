@@ -23,3 +23,12 @@ fun ImageView.setLocalImage(uri: Uri, applyCircle: Boolean = false) {
         glide.into(this)
     }
 }
+
+fun ImageView.setImageFromUrl(url: String, applyCircle: Boolean = false) {
+    val glide = Glide.with(this).load(url)
+    if (applyCircle) {
+        glide.apply(RequestOptions.circleCropTransform()).into(this)
+    } else {
+        glide.into(this)
+    }
+}

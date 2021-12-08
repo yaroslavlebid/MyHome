@@ -2,23 +2,22 @@ package yaroslavlebid.apps.myhome
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import yaroslavlebid.apps.myhome.repository.AuthRepository
-import yaroslavlebid.apps.myhome.repository.AuthRepositoryImpl
-import yaroslavlebid.apps.myhome.repository.UserRepository
-import yaroslavlebid.apps.myhome.repository.UserRepositoryImpl
+import yaroslavlebid.apps.myhome.repository.*
 import yaroslavlebid.apps.myhome.ui.login.sign_up.SignUpViewModel
 import yaroslavlebid.apps.myhome.ui.profile.ProfileViewModel
 
 val viewModelModule = module {
     viewModel { SignUpViewModel(get(), get()) }
-    viewModel { ProfileViewModel(get(), get()) }
+    viewModel { ProfileViewModel(get(), get(), get()) }
 }
 
 val repositoryModule = module {
     single<AuthRepository> { AuthRepositoryImpl(get()) }
     single<UserRepository> { UserRepositoryImpl(get()) }
+    single<StorageRepository> { StorageRepositoryImpl(get()) }
 }
 
 val utilsModule = module {
@@ -28,4 +27,5 @@ val utilsModule = module {
 val firebaseModule = module {
     single { FirebaseAuth.getInstance() }
     single { FirebaseFirestore.getInstance() }
+    single { FirebaseStorage.getInstance() }
 }

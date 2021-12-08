@@ -29,13 +29,12 @@ class SignUpViewModel(
                 }
                 .addOnSuccessListener { result ->
                     result.user?.let { firebaseUser ->
-                        userRepository.addUserToDb(
-                            User(
-                                id = firebaseUser.uid,
-                                email = email,
-                                registrationTimestamp = System.currentTimeMillis()
-                            )
+                        val newUser = User(
+                            id = firebaseUser.uid,
+                            email = email,
+                            registrationTimestamp = System.currentTimeMillis()
                         )
+                        userRepository.addUserToDb(newUser)
                         _registrationStatus.value = RegistrationEvent(RegistrationStatus.SUCCESS)
                         Timber.d("Success register user with id: ${firebaseUser.uid}}")
                         return@addOnSuccessListener
