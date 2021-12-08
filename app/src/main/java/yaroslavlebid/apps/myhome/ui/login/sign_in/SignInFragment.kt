@@ -8,6 +8,8 @@ import yaroslavlebid.apps.myhome.databinding.FragmentSignInBinding
 import yaroslavlebid.apps.myhome.ui.login.sign_up.SignUpFragment
 
 class SignInFragment : Fragment(R.layout.fragment_sign_in) {
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentSignInBinding.bind(view)
@@ -16,6 +18,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     }
 
     private fun initListeners(binding: FragmentSignInBinding) {
+        binding.signIn.setOnClickListener { }
         binding.register.setOnClickListener { showRegisterFragment() }
     }
 

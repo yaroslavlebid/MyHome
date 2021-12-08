@@ -1,32 +1,19 @@
 package yaroslavlebid.apps.myhome.ui.profile
 
-import android.app.Activity
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.yanzhenjie.album.Album
-import com.yanzhenjie.album.AlbumConfig
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.FragmentProfileSetupBinding
 import yaroslavlebid.apps.myhome.ui.home.HomeActivity
-import yaroslavlebid.apps.myhome.utils.MediaLoader
-import yaroslavlebid.apps.myhome.utils.setLocalImage
 import java.io.File
-import com.yanzhenjie.album.AlbumFile
 
-import androidx.annotation.NonNull
-import androidx.core.widget.doAfterTextChanged
-import com.bumptech.glide.Glide
-import yaroslavlebid.apps.myhome.utils.setDrawableImage
-import yaroslavlebid.apps.myhome.utils.setImageFromUrl
+import yaroslavlebid.apps.myhome.utils.*
 
 
 class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
@@ -60,14 +47,18 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
                     firstName = firstName.text.toString(),
                     lastName = lastName.text.toString(),
                     phoneNumber = phoneNumber.text.toString(),
-                    dateOfBirth = dateOfBirth.text.toString()
+                    dateOfBirth = dateToString(
+                        dayOfBirth.text.toString().toInt(),
+                        monthOfBirth.text.toString().toInt(),
+                        yearOfBirth.text.toString().toInt()
+                    )
                 )
                 profileViewModel.confirmProfile()
             }
         }
     }
 
-    var temporaryPath = ""
+    var tempImagePath = ""
 
     private fun initObservers(binding: FragmentProfileSetupBinding) {
         profileViewModel.isLoading.observe(viewLifecycleOwner) {
@@ -80,7 +71,7 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
         }
 
         profileViewModel.isProfileImageLoaded.observe(viewLifecycleOwner) { result ->
-            if (result) binding.profileImage.setLocalImage(Uri.fromFile(File(temporaryPath)), true)
+            if (result) binding.profileImage.setLocalImage(Uri.fromFile(File(tempImagePath)), true)
             else {
                 Toast.makeText(
                     requireContext(),
@@ -96,7 +87,11 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
                     profileImage.setImageFromUrl(user.photoUrl, true)
                     firstName.setText(user.firstName)
                     lastName.setText(user.lastName)
-                    // todo: set other fields
+                    val date = stringToDate(user.dateOfBirth)
+                    dayOfBirth.setText(date.dayOfMonth.toString())
+                    monthOfBirth.setText(date.monthValue.toString())
+                    yearOfBirth.setText(date.year.toString())
+                    phoneNumber.setText(user.phoneNumber)
                 }
             }
         }
@@ -109,7 +104,7 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
             .onResult {
                 it.firstOrNull()?.let {
                     profileViewModel.loadProfileImage(it.path)
-                    temporaryPath = it.path
+                    tempImagePath = it.path
                 }
             }
             .onCancel {
