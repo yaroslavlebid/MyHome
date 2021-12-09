@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.FragmentSignUpBinding
 import yaroslavlebid.apps.myhome.ui.home.HomeActivity
+import yaroslavlebid.apps.myhome.ui.profile.ProfileActivity
 import yaroslavlebid.apps.myhome.ui.profile.ProfileSetupFragment
 
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
@@ -41,17 +43,24 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
         signUpViewModel.registrationStatus.observe(viewLifecycleOwner) { registrationResult ->
             if (registrationResult.status == RegistrationStatus.SUCCESS) {
-                activity?.let { showProfileSetupFragment() }
+                ProfileActivity.start(requireActivity())
             } else {
-                activity?.let {
-                    Toast.makeText(it, registrationResult.errorMessage, Toast.LENGTH_SHORT).show()
+                val errorMessage = when(registrationResult.status) {
+                    RegistrationStatus.CUSTOM_ERROR -> registrationResult.customMessage
+                    else -> registrationResult.status?.let {
+                        RegistrationStatusMap.getErrorMessage(it)
+                    }
                 }
+                Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun showProfileSetupFragment() = parentFragmentManager.beginTransaction()
-        .replace(R.id.fragmentContainer, ProfileSetupFragment())
-        .addToBackStack(null)
-        .commit()
+    companion object {
+        fun show(fragmentManager: FragmentManager) {
+            fragmentManager.beginTransaction().replace(R.id.fragmentContainer, SignUpFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+    }
 }

@@ -19,9 +19,6 @@ class ProfileViewModel(
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _userInited = MutableLiveData<Boolean>()
-    val userInited: LiveData<Boolean> = _userInited
-
     private val _canConfirmProfile = MutableLiveData<Boolean>();
     val canConfirmProfile: LiveData<Boolean> = _canConfirmProfile
 
@@ -42,7 +39,6 @@ class ProfileViewModel(
                     var user = dataSnapshot.toObject(User::class.java)
                     if (user == null) {
                         Timber.e("Cannot fetch user from db, error!")
-                        _userInited.value = false
                         return@addOnSuccessListener
                     } else {
                         _userLiveData.value = user.copy()
@@ -50,7 +46,6 @@ class ProfileViewModel(
                     }
                 }.addOnFailureListener {
                     Timber.e("Error, when try to get user", it)
-                    _userInited.value = false
                 }.addOnCompleteListener {
                     _isLoading.value = false
                 }

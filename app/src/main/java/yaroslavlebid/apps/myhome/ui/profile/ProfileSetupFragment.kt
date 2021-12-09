@@ -4,7 +4,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.yanzhenjie.album.Album
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -111,5 +113,14 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
                 Timber.d("Canceled select image")
             }
             .start()
+    }
+
+    companion object {
+        fun show(fragmentManager: FragmentManager, @IdRes container: Int) {
+           fragmentManager.beginTransaction()
+                .add(container, ProfileSetupFragment())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 }

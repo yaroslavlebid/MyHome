@@ -8,14 +8,15 @@ import timber.log.Timber
 import yaroslavlebid.apps.myhome.data.User
 import yaroslavlebid.apps.myhome.repository.AuthRepository
 import yaroslavlebid.apps.myhome.repository.UserRepository
+import yaroslavlebid.apps.myhome.ui.helpers.Event
 
 class SignUpViewModel(
     val authRepository: AuthRepository,
     val userRepository: UserRepository
 ) : ViewModel() {
 
-    private val _registrationStatus = MutableLiveData<RegistrationEvent>()
-    val registrationStatus: LiveData<RegistrationEvent> = _registrationStatus
+    private val _registrationStatus = MutableLiveData<Event<RegistrationStatus>>()
+    val registrationStatus: LiveData<Event<RegistrationStatus>> = _registrationStatus
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -35,11 +36,11 @@ class SignUpViewModel(
                             registrationTimestamp = System.currentTimeMillis()
                         )
                         userRepository.addUserToDb(newUser)
-                        _registrationStatus.value = RegistrationEvent(RegistrationStatus.SUCCESS)
+                        _registrationStatus.value = Event<RegistrationStatus>(RegistrationStatus.SUCCESS)
                         Timber.d("Success register user with id: ${firebaseUser.uid}}")
                         return@addOnSuccessListener
                     }.run {
-                        _registrationStatus.value = RegistrationEvent(
+                        _registrationStatus.value = Event<RegistrationStatus>(
                             RegistrationStatus.ERROR_DEFAULT,
                             RegistrationStatusMap.getErrorMessage(RegistrationStatus.ERROR_DEFAULT)
                         )
@@ -47,17 +48,11 @@ class SignUpViewModel(
                 }
                 .addOnFailureListener { error ->
                     Timber.d("Registration failed: $error")
-                    var event: RegistrationEvent
+                    var event: Event<RegistrationStatus>
                     if (error.message == null) {
-                        event = RegistrationEvent(
-                            RegistrationStatus.ERROR_DEFAULT,
-                            RegistrationStatusMap.getErrorMessage(RegistrationStatus.ERROR_DEFAULT)
-                        )
+                        event = Event<RegistrationStatus>(RegistrationStatus.ERROR_DEFAULT)
                     } else {
-                        event = RegistrationEvent(
-                            RegistrationStatus.CUSTOM_ERROR,
-                            error.message.toString()
-                        )
+                        event = Event<RegistrationStatus>(RegistrationStatus.CUSTOM_ERROR, error.message.toString())
                     }
                     _registrationStatus.value = event
                 }
@@ -70,7 +65,7 @@ class SignUpViewModel(
             Timber.d("Email is empty")
             val status = RegistrationStatus.ERROR_EMAIL_EMPTY
             _registrationStatus.value =
-                RegistrationEvent(status, RegistrationStatusMap.getErrorMessage(status))
+                Event<RegistrationStatus>(status)
             return false
         }
 
@@ -78,7 +73,7 @@ class SignUpViewModel(
             Timber.d("Password is empty")
             val status = RegistrationStatus.ERROR_PASSWORD_EMPTY
             _registrationStatus.value =
-                RegistrationEvent(status, RegistrationStatusMap.getErrorMessage(status))
+                Event<RegistrationStatus>(status)
             return false
         }
 
@@ -86,7 +81,7 @@ class SignUpViewModel(
             Timber.d("Password too short")
             val status = RegistrationStatus.ERROR_PASSWORD_TOO_SHORT
             _registrationStatus.value =
-                RegistrationEvent(status, RegistrationStatusMap.getErrorMessage(status))
+                Event<RegistrationStatus>(status)
             return false
         }
 

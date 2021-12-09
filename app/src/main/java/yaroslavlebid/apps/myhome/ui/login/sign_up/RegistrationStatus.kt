@@ -1,10 +1,5 @@
 package yaroslavlebid.apps.myhome.ui.login.sign_up
 
-data class RegistrationEvent (
-    val status: RegistrationStatus = RegistrationStatus.SUCCESS,
-    val errorMessage: String = ""
-)
-
 object RegistrationStatusMap {
     fun getErrorMessage(status: RegistrationStatus) = when (status) {
         RegistrationStatus.SUCCESS -> ""
