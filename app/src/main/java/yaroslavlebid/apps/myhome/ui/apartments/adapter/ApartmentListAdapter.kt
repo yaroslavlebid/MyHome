@@ -1,7 +1,6 @@
 package yaroslavlebid.apps.myhome.ui.apartments.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
@@ -9,7 +8,7 @@ import yaroslavlebid.apps.myhome.databinding.ItemApartmentBinding
 import yaroslavlebid.apps.myhome.utils.setImageFromUrl
 import java.text.DecimalFormat
 
-class ApartmentListAdapter(private val apartments: List<Apartment>) :
+class ApartmentListAdapter(private val apartments: MutableList<Apartment>) :
     RecyclerView.Adapter<ApartmentListAdapter.ApartmentsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApartmentsViewHolder {
@@ -23,7 +22,7 @@ class ApartmentListAdapter(private val apartments: List<Apartment>) :
             apartments[position].apply {
                 binding.photo.setImageFromUrl(photos[coverPhotoId].mediumImageUrl)
                 binding.title.text = title
-                binding.description.text = desription
+                binding.description.text = description
                 binding.location.text = "${location.city}, ${location.street}, ${location.numberOfHouse}"
                 binding.rating.text = DecimalFormat("#0.0").format(ratingAvg)
             }
