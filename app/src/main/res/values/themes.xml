@@ -67,6 +67,20 @@
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">4</item>
         <item name="android:shadowRadius">4</item>
+        <item name="android:shadowColor">@color/grey_700</item>
+        <item name="android:shadowDx">8</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+    <style name="RegisterStyle">
+        <item name="fontFamily">@font/courgette</item>
+        <item name="android:textSize">56sp</item>
+        <item name="android:textColor">@color/md_theme_light_primary</item>
+        <item name="android:shadowColor">#40000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowRadius">4</item>
     </style>
 
 </resources>

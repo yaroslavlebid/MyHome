@@ -5,72 +5,144 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/email"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/login_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:hint="Enter your E-mail"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".25"
-        app:layout_constraintWidth_percent=".8" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="30dp"
-        android:hint="Come up with the password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email"
-        app:layout_constraintVertical_bias=".0"
-        app:layout_constraintWidth_percent=".8" />
-
-    <CheckBox
-        android:id="@+id/termsCheckbox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:text="I agree with Terms and Privacy Policy"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password"
-        app:layout_constraintVertical_bias=".0">
+        app:layout_constraintTop_toTopOf="parent">
 
-    </CheckBox>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your e-mail"
+            android:minHeight="48dp"
+            app:errorEnabled="true">
 
-    <Button
-        android:id="@+id/signUp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Create a password"
+            android:minHeight="48dp"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/repeat_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Repeat your password"
+            android:minHeight="48dp"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/go_to_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/already_have_account"
+            android:textAlignment="viewEnd"
+            android:textSize="15sp">
+
+        </com.google.android.material.textview.MaterialTextView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signUp"
+            style="@style/Theme.MyHome.AuthButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="Create account">
+
+        </com.google.android.material.button.MaterialButton>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/logo"
+        style="@style/RegisterStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Sign up"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:text="Registration"
+        app:layout_constraintBottom_toTopOf="@+id/login_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/register_with_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Or register with social networks"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/login_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/social_networks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/termsCheckbox"
-        app:layout_constraintVertical_bias=".0"></Button>
+        app:layout_constraintTop_toBottomOf="@id/register_with_label">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/google_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/google_icon_color" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/facebook_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/facebook_icon_color" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/twitter_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/twitter_icon_color" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     <FrameLayout
         android:id="@+id/loadingIndicator"
@@ -82,10 +154,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_weight="100"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintHorizontal_weight="100"
         app:layout_constraintVertical_weight="100">
 
         <ProgressBar
@@ -95,5 +167,4 @@
             android:indeterminate="true"></ProgressBar>
 
     </FrameLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
