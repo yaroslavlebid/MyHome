@@ -22,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your e-mail"
+            app:startIconDrawable="@drawable/mail"
             android:minHeight="48dp"
             app:errorEnabled="true">
 
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"
             android:hint="Create a password"
             android:minHeight="48dp"
+            app:startIconDrawable="@drawable/lock"
             app:endIconMode="password_toggle"
             app:errorEnabled="true">
 
@@ -55,6 +57,7 @@
             android:layout_height="wrap_content"
             android:hint="Repeat your password"
             android:minHeight="48dp"
+            app:startIconDrawable="@drawable/lock"
             app:endIconMode="password_toggle"
             app:errorEnabled="true">
 

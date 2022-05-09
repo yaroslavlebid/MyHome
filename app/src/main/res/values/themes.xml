@@ -83,4 +83,14 @@
         <item name="android:shadowRadius">4</item>
     </style>
 
+    <style name="Theme.MyHome.TitleText">
+        <item name="fontFamily">@font/courgette</item>
+        <item name="android:textSize">56sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">#40000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+
 </resources>
