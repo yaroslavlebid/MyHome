@@ -4,20 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/welcomeTextView"
-        style="@style/Theme.MyHome.TitleText"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.MaterialToolbar
+        app:title="Set up your profile"
+        app:titleTextColor="@color/white"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="User Profile"
-        android:textAlignment="center"
+        android:background="@drawable/profile_header_background_no_corners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </TextView>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
