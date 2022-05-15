@@ -28,19 +28,19 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileSetupBinding.bind(view)
 
-        initListenters(binding)
-        initObservers(binding)
+        /*initListenters(binding)
+        initObservers(binding)*/
 
         profileViewModel.initUser()
     }
 
-    private fun initListenters(binding: FragmentProfileSetupBinding) {
+    /*private fun initListenters(binding: FragmentProfileSetupBinding) {
         binding.run {
             profileImage.setOnClickListener {
                 pickProfileImage()
             }
 
-            fabAddPhoto.setOnClickListener {
+            changePicture.setOnClickListener {
                 pickProfileImage()
             }
 
@@ -97,9 +97,9 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
                 }
             }
         }
-    }
+    }*/
 
-    private fun pickProfileImage() {
+   /* private fun pickProfileImage() {
         Album.image(this)
             .singleChoice()
             .camera(true)
@@ -114,7 +114,7 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
             }
             .start()
     }
-
+*/
     companion object {
         fun show(fragmentManager: FragmentManager, @IdRes container: Int) {
            fragmentManager.beginTransaction()

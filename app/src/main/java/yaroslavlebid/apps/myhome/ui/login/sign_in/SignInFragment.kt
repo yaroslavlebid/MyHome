@@ -31,7 +31,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
                 binding.password.editText?.text.toString()
             )
         }
-        binding.register.setOnClickListener {
+        binding.goToSignUp.setOnClickListener {
             SignUpFragment.show(parentFragmentManager)
         }
     }

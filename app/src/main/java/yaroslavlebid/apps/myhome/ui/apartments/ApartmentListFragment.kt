@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.lapism.search.widget.MaterialSearchView
+import com.lapism.search.widget.NavigationIconCompat
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
@@ -24,6 +26,40 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
         initObservers(binding)
 
         apartmentViewModel.requestApartments()
+
+        binding.materialSearchBar.apply {
+            navigationIconCompat = NavigationIconCompat.SEARCH
+            setHint("Search")
+            setOnClickListener {
+                binding.materialSearchView.requestFocus()
+            }
+            setNavigationOnClickListener {
+                binding.materialSearchView.requestFocus()
+            }
+        }
+
+        binding.materialSearchView.apply {
+            navigationIconCompat = NavigationIconCompat.ARROW
+            setNavigationOnClickListener {
+                binding.materialSearchView.clearFocus()
+            }
+            setHint("Where are you going?")
+            setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
+                override fun onQueryTextChange(newText: CharSequence) {
+                }
+
+                override fun onQueryTextSubmit(query: CharSequence) {
+
+                }
+            })
+            setOnFocusChangeListener(object : MaterialSearchView.OnFocusChangeListener {
+                override fun onFocusChange(hasFocus: Boolean) {
+
+                }
+            })
+        }
+
+
         //apartmentViewModel.addMockApartmentsToDb()
     }
 
@@ -34,9 +70,6 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
     }
 
     private fun initListeners(binding: FragmentApartmentListBinding) {
-        binding.floatingActionButton.setOnClickListener {
-            TODO("navigate to form add apartment")
-        }
     }
 
     private fun initObservers(binding: FragmentApartmentListBinding) {

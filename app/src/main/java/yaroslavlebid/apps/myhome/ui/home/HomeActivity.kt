@@ -22,10 +22,6 @@ class HomeActivity : AppCompatActivity() {
         // show toolbar
         // show apartmentList fragment
 
-        binding.textview.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            LoginActivity.start(this)
-        }
         supportFragmentManager.beginTransaction()
             .add(binding.fragmentContainer.id, ApartmentListFragment())
             .commit()
