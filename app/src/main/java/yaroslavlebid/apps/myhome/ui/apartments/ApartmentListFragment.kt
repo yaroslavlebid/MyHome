@@ -10,6 +10,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
 import yaroslavlebid.apps.myhome.databinding.FragmentApartmentListBinding
+import yaroslavlebid.apps.myhome.databinding.ViewSearchHelperBinding
 import yaroslavlebid.apps.myhome.ui.apartments.adapter.ApartmentListAdapter
 
 class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
@@ -32,16 +33,24 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
             setHint("Search")
             setOnClickListener {
                 binding.materialSearchView.requestFocus()
+                binding.searchHelper.root.visibility = View.VISIBLE
+                binding.filterAndSortLayout.visibility = View.GONE
             }
             setNavigationOnClickListener {
                 binding.materialSearchView.requestFocus()
+                binding.searchHelper.root.visibility = View.VISIBLE
+                binding.filterAndSortLayout.visibility = View.GONE
             }
         }
 
+        //val searchHelper = ViewSearchHelperBinding.inflate(layoutInflater)
         binding.materialSearchView.apply {
+            //addView(searchHelper.root)
             navigationIconCompat = NavigationIconCompat.ARROW
             setNavigationOnClickListener {
                 binding.materialSearchView.clearFocus()
+                binding.searchHelper.root.visibility = View.GONE
+                binding.filterAndSortLayout.visibility = View.VISIBLE
             }
             setHint("Where are you going?")
             setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
@@ -58,6 +67,9 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
                 }
             })
         }
+
+        //searchHelper.horizontalScroll.setOnClickListener { searchHelper.horizontalScroll.requestFocus() }
+
 
 
         //apartmentViewModel.addMockApartmentsToDb()
