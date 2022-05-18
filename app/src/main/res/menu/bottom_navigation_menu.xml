@@ -9,7 +9,7 @@
         android:id="@+id/favorite"
         android:enabled="true"
         android:icon="@drawable/favorite"
-        android:title="Favorite" />
+        android:title="Saved" />
     <item
         android:id="@+id/search"
         android:enabled="true"

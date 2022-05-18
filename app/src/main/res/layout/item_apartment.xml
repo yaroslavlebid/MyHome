@@ -14,6 +14,9 @@
         android:orientation="vertical">
 
         <!-- Media -->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/photo"
             android:layout_width="match_parent"
@@ -21,13 +24,38 @@
             android:scaleType="centerCrop"
             tools:src="@drawable/aparment_placeholder" />
 
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/photo"
+                android:layout_alignEnd="@id/photo"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:text="9.8 / 10"
+                app:chipCornerRadius="30dp"
+                app:chipIcon="@drawable/star" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@id/photo"
+                android:layout_alignBottom="@id/photo"
+                android:layout_marginEnd="15dp"
+                android:text="From 125$ / day"
+                app:chipCornerRadius="30dp"
+                app:chipIcon="@drawable/payments" />
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="16dp">
@@ -37,7 +65,8 @@
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Apartment title"
+                    android:maxLines="1"
+                    tools:text="Grand Hotel Lviv"
                     android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <TextView
@@ -45,6 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:maxLines="4"
                     android:text="Content description"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
@@ -54,55 +84,47 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:maxLines="1"
                     android:text="supporting text"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/rating"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="5.5"
-                    android:textSize="18sp">
-
-                </TextView>
-
-            </LinearLayout>
         </LinearLayout>
 
         <!-- Buttons -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="Book" />
+                android:text="Details"
+                app:icon="@drawable/info"/>
 
             <com.google.android.material.button.MaterialButton
-                style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Share" />
+                android:text="Map"
+                app:icon="@drawable/pin_drop"/>
 
-            <com.google.android.material.button.MaterialButton
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save" />
+            <View
+                android:layout_width="110dp"
+                android:layout_height="0dp"/>
+
+            <ImageView
+                android:id="@+id/add_to_saved"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/bookmark"/>
+
         </LinearLayout>
 
     </LinearLayout>
