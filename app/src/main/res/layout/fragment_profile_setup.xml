@@ -5,47 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/profile_header_background"
-        app:layout_constraintBottom_toTopOf="@id/guideline30percent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></View>
-
-    <RelativeLayout
-        android:id="@+id/profile_photo_layout"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_centerInParent="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <include layout="@layout/profile_header"
+        android:id="@+id/profile_header"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/profile_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="center"
-            android:background="@drawable/profile_bg"
-            android:padding="10dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_person" />
-
-    </RelativeLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline30percent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/changePicture"
@@ -53,9 +17,10 @@
         android:layout_height="wrap_content"
         android:text="Change picture"
         android:textSize="16sp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_photo_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_header" />
 
     <LinearLayout
         android:id="@+id/profile_info_layout"

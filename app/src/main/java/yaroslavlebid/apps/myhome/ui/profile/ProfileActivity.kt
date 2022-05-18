@@ -14,7 +14,7 @@ class ProfileActivity : AppCompatActivity() {
         val binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ProfileSetupFragment.show(supportFragmentManager, binding.fragmentContainer.id)
+        MyProfileFragment.show(supportFragmentManager, binding.fragmentContainer.id)
     }
 
     companion object {

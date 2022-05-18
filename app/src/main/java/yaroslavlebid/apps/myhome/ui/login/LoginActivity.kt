@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
 import yaroslavlebid.apps.myhome.databinding.ActivityLoginBinding
 import yaroslavlebid.apps.myhome.ui.home.HomeActivity
+import yaroslavlebid.apps.myhome.ui.profile.ProfileActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -18,7 +19,8 @@ class LoginActivity : AppCompatActivity() {
        // val user = FirebaseAuth.getInstance().currentUser
        // if (user != null) {
        //     Timber.d ("User loggined, start HomeActivity")
-           HomeActivity.start(this)
+           //HomeActivity.start(this)
+        ProfileActivity.start(this)
         //}
         //SearchTestActivity.start(this)
 
