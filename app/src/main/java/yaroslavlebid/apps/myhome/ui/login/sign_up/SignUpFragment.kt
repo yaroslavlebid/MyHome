@@ -28,8 +28,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         binding.run {
             signUp.setOnClickListener {
                 signUpViewModel.registerUser(
-                    email.text.toString(),
-                    password.text.toString()
+                    email.editText?.text.toString(),
+                    password.editText?.text.toString()
                 )
             }
         }

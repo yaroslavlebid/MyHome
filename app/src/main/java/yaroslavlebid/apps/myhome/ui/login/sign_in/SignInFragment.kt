@@ -11,7 +11,6 @@ import yaroslavlebid.apps.myhome.ui.home.HomeActivity
 import yaroslavlebid.apps.myhome.ui.login.sign_up.RegistrationStatus
 import yaroslavlebid.apps.myhome.ui.login.sign_up.RegistrationStatusMap
 import yaroslavlebid.apps.myhome.ui.login.sign_up.SignUpFragment
-import kotlin.math.sign
 
 class SignInFragment : Fragment(R.layout.fragment_sign_in) {
 
@@ -28,11 +27,11 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     private fun initListeners(binding: FragmentSignInBinding) {
         binding.signIn.setOnClickListener {
             signInViewModel.signIn(
-                binding.email.text.toString(),
-                binding.password.text.toString()
+                binding.email.editText?.text.toString(),
+                binding.password.editText?.text.toString()
             )
         }
-        binding.register.setOnClickListener {
+        binding.goToSignUp.setOnClickListener {
             SignUpFragment.show(parentFragmentManager)
         }
     }

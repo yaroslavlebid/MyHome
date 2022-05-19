@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.lapism.search.widget.MaterialSearchView
+import com.lapism.search.widget.NavigationIconCompat
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
 import yaroslavlebid.apps.myhome.databinding.FragmentApartmentListBinding
+import yaroslavlebid.apps.myhome.databinding.ViewSearchHelperBinding
 import yaroslavlebid.apps.myhome.ui.apartments.adapter.ApartmentListAdapter
 
 class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
@@ -24,6 +27,51 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
         initObservers(binding)
 
         apartmentViewModel.requestApartments()
+
+        binding.materialSearchBar.apply {
+            navigationIconCompat = NavigationIconCompat.SEARCH
+            setHint("Search")
+            setOnClickListener {
+                binding.materialSearchView.requestFocus()
+                binding.searchHelper.root.visibility = View.VISIBLE
+                binding.filterAndSortLayout.visibility = View.GONE
+            }
+            setNavigationOnClickListener {
+                binding.materialSearchView.requestFocus()
+                binding.searchHelper.root.visibility = View.VISIBLE
+                binding.filterAndSortLayout.visibility = View.GONE
+            }
+        }
+
+        //val searchHelper = ViewSearchHelperBinding.inflate(layoutInflater)
+        binding.materialSearchView.apply {
+            //addView(searchHelper.root)
+            navigationIconCompat = NavigationIconCompat.ARROW
+            setNavigationOnClickListener {
+                binding.materialSearchView.clearFocus()
+                binding.searchHelper.root.visibility = View.GONE
+                binding.filterAndSortLayout.visibility = View.VISIBLE
+            }
+            setHint("Where are you going?")
+            setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
+                override fun onQueryTextChange(newText: CharSequence) {
+                }
+
+                override fun onQueryTextSubmit(query: CharSequence) {
+
+                }
+            })
+            setOnFocusChangeListener(object : MaterialSearchView.OnFocusChangeListener {
+                override fun onFocusChange(hasFocus: Boolean) {
+
+                }
+            })
+        }
+
+        //searchHelper.horizontalScroll.setOnClickListener { searchHelper.horizontalScroll.requestFocus() }
+
+
+
         //apartmentViewModel.addMockApartmentsToDb()
     }
 
@@ -34,9 +82,6 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
     }
 
     private fun initListeners(binding: FragmentApartmentListBinding) {
-        binding.floatingActionButton.setOnClickListener {
-            TODO("navigate to form add apartment")
-        }
     }
 
     private fun initObservers(binding: FragmentApartmentListBinding) {

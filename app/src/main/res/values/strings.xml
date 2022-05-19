@@ -10,4 +10,5 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="sign_in_register">Don\'t have account? <b><u>Register</u></b></string>
+    <string name="already_have_account">Already have account? <b><u>Sign in</u></b></string>
 </resources>

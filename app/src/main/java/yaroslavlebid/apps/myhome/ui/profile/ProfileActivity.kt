@@ -3,7 +3,6 @@ package yaroslavlebid.apps.myhome.ui.profile
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
 import yaroslavlebid.apps.myhome.databinding.ActivityProfileBinding
@@ -14,7 +13,7 @@ class ProfileActivity : AppCompatActivity() {
         val binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ProfileSetupFragment.show(supportFragmentManager, binding.fragmentContainer.id)
+        MyProfileFragment.show(supportFragmentManager, binding.fragmentContainer.id)
     }
 
     companion object {

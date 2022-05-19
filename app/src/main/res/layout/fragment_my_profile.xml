@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/profile_header"
+        layout="@layout/profile_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/edit_profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Edit profile"
+        android:textSize="14sp"
+        app:icon="@drawable/edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_header" />
+
+
+    <ScrollView
+        android:id="@+id/category_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/edit_profile_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_profile_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/info_label"
+            style="@style/Theme.MyHome.MyProfileTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_profile_button" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/devider_color"
+            app:layout_constraintBottom_toBottomOf="@id/info_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/info_label"
+            app:layout_constraintTop_toTopOf="@id/info_label" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_label">
+
+            <ImageView
+                android:id="@+id/help_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/contact_support"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/help"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Help"
+                app:layout_constraintBottom_toBottomOf="@id/help_icon"
+                app:layout_constraintStart_toEndOf="@id/help_icon"
+                app:layout_constraintTop_toTopOf="@id/help_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/help"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/help" />
+
+            <ImageView
+                android:id="@+id/my_orders_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/shopping_cart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/help_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/my_orders"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="My Orders"
+                app:layout_constraintBottom_toBottomOf="@id/my_orders_icon"
+                app:layout_constraintStart_toEndOf="@id/my_orders_icon"
+                app:layout_constraintTop_toTopOf="@id/my_orders_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/my_orders"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/my_orders" />
+
+            <ImageView
+                android:id="@+id/faq_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/quiz"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/my_orders_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/faq"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="FAQ"
+                app:layout_constraintBottom_toBottomOf="@id/faq_icon"
+                app:layout_constraintStart_toEndOf="@id/faq_icon"
+                app:layout_constraintTop_toTopOf="@id/faq_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/faq"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/faq" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/content_label"
+            style="@style/Theme.MyHome.MyProfileTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_layout" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/devider_color"
+            app:layout_constraintBottom_toBottomOf="@id/content_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/content_label"
+            app:layout_constraintTop_toTopOf="@id/content_label" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_label">
+
+            <ImageView
+                android:id="@+id/history_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/history"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/history"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="History"
+                app:layout_constraintBottom_toBottomOf="@id/history_icon"
+                app:layout_constraintStart_toEndOf="@id/history_icon"
+                app:layout_constraintTop_toTopOf="@id/history_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/history"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/history" />
+
+            <ImageView
+                android:id="@+id/favorite_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/favorite"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/history_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/favorite"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Favorite"
+                app:layout_constraintBottom_toBottomOf="@id/favorite_icon"
+                app:layout_constraintStart_toEndOf="@id/favorite_icon"
+                app:layout_constraintTop_toTopOf="@id/favorite_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/favorite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/favorite" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/settings_label"
+            style="@style/Theme.MyHome.MyProfileTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Settings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_layout" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/devider_color"
+            app:layout_constraintBottom_toBottomOf="@id/settings_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/settings_label"
+            app:layout_constraintTop_toTopOf="@id/settings_label" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_label">
+
+            <ImageView
+                android:id="@+id/language_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/language"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/language"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Language"
+                app:layout_constraintBottom_toBottomOf="@id/language_icon"
+                app:layout_constraintStart_toEndOf="@id/language_icon"
+                app:layout_constraintTop_toTopOf="@id/language_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/language"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/language" />
+
+            <ImageView
+                android:id="@+id/theme_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dark_mode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/language_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/theme"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Theme"
+                app:layout_constraintBottom_toBottomOf="@id/theme_icon"
+                app:layout_constraintStart_toEndOf="@id/theme_icon"
+                app:layout_constraintTop_toTopOf="@id/theme_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/theme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/theme" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

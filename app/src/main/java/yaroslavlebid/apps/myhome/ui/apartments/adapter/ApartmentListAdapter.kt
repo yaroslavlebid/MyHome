@@ -24,7 +24,7 @@ class ApartmentListAdapter(private val apartments: MutableList<Apartment>) :
                 binding.title.text = title
                 binding.description.text = description
                 binding.location.text = "${location.city}, ${location.street}, ${location.numberOfHouse}"
-                binding.rating.text = DecimalFormat("#0.0").format(ratingAvg)
+                binding.chipRating.text = DecimalFormat("#0.0").format(ratingAvg)
             }
         }
     }
