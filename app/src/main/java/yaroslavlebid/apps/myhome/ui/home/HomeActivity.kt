@@ -5,13 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
-import com.google.firebase.auth.FirebaseAuth
-import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.ActivityHomeBinding
 import yaroslavlebid.apps.myhome.ui.apartments.ApartmentListFragment
-import yaroslavlebid.apps.myhome.ui.login.LoginActivity
-import yaroslavlebid.apps.myhome.ui.login.sign_in.SignInFragment
-import yaroslavlebid.apps.myhome.ui.profile.ProfileSetupFragment
 
 class HomeActivity : AppCompatActivity() {
 
