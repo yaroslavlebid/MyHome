@@ -4,13 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.FragmentSignUpBinding
-import yaroslavlebid.apps.myhome.ui.home.HomeActivity
-import yaroslavlebid.apps.myhome.ui.profile.ProfileActivity
-import yaroslavlebid.apps.myhome.ui.profile.ProfileSetupFragment
 
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
@@ -32,6 +30,10 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                     password.editText?.text.toString()
                 )
             }
+            goToSignIn.setOnClickListener {
+                Timber.d("Go to sign in...")
+                findNavController().popBackStack()
+            }
         }
     }
 
@@ -43,7 +45,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
         signUpViewModel.registrationStatus.observe(viewLifecycleOwner) { registrationResult ->
             if (registrationResult.status == RegistrationStatus.SUCCESS) {
-                ProfileActivity.start(requireActivity())
+                val action = SignUpFragmentDirections.actionSignUpFragmentToEditProfileFragment()
+                findNavController().navigate(action)
             } else {
                 val errorMessage = when(registrationResult.status) {
                     RegistrationStatus.CUSTOM_ERROR -> registrationResult.customMessage
@@ -53,14 +56,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                 }
                 Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
             }
-        }
-    }
-
-    companion object {
-        fun show(fragmentManager: FragmentManager) {
-            fragmentManager.beginTransaction().replace(R.id.fragmentContainer, SignUpFragment())
-                .addToBackStack(null)
-                .commit()
         }
     }
 }

@@ -1,32 +1,22 @@
 package yaroslavlebid.apps.myhome.ui.profile
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import com.yanzhenjie.album.Album
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 import yaroslavlebid.apps.myhome.R
-import yaroslavlebid.apps.myhome.databinding.FragmentProfileSetupBinding
-import yaroslavlebid.apps.myhome.ui.home.HomeActivity
-import java.io.File
-
-import yaroslavlebid.apps.myhome.utils.*
+import yaroslavlebid.apps.myhome.databinding.FragmentEditProfileBinding
 
 
-class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
+class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
 
     private val profileViewModel: ProfileViewModel by viewModel()
 
-    private lateinit var binding: FragmentProfileSetupBinding
+    private lateinit var binding: FragmentEditProfileBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentProfileSetupBinding.bind(view)
+        binding = FragmentEditProfileBinding.bind(view)
 
         /*initListenters(binding)
         initObservers(binding)*/
@@ -115,12 +105,4 @@ class ProfileSetupFragment : Fragment(R.layout.fragment_profile_setup) {
             .start()
     }
 */
-    companion object {
-        fun show(fragmentManager: FragmentManager, @IdRes container: Int) {
-           fragmentManager.beginTransaction()
-                .add(container, ProfileSetupFragment())
-                .addToBackStack(null)
-                .commit()
-        }
-    }
 }

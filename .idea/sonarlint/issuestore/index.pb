@@ -23,12 +23,8 @@ Kapp/src/main/java/yaroslavlebid/apps/myhome/ui/login/sign_in/LoginStatus.kt,6\
 Oapp/src/main/java/yaroslavlebid/apps/myhome/ui/login/sign_in/SignInViewModel.kt,e\0\e00c66c5f2a44df7e9124373080f8a121009ec83
 
 Oapp/src/main/java/yaroslavlebid/apps/myhome/ui/login/sign_up/SignUpViewModel.kt,c\a\ca0cacc364f3292a3d308a01c09af42b89abeb31
-~
-Napp/src/main/java/yaroslavlebid/apps/myhome/ui/login/sign_up/SignUpFragment.kt,8\a\8a5b7206c193c2ed4a7934aff12944612c59cf7f
 ‚
 Rapp/src/main/java/yaroslavlebid/apps/myhome/ui/login/sign_up/RegistrationStatus.kt,6\1\61679001910862bf12b90cde4a83ce9a5372181e
-h
-8app/src/main/java/yaroslavlebid/apps/myhome/MyHomeApp.kt,0\5\05a5b0d2ecd5619800befff4630c7b32e1f77e4c
 }
 Mapp/src/main/java/yaroslavlebid/apps/myhome/repository/ApartmentRepository.kt,1\d\1deea13ac061f105b7a065901b4725b869f0841c
 x
@@ -37,15 +33,9 @@ Happ/src/main/java/yaroslavlebid/apps/myhome/repository/AuthRepository.kt,1\c\1
 Tapp/src/main/java/yaroslavlebid/apps/myhome/ui/apartments/RequestApartmentsStatus.kt,2\6\26df332bb3fa1bf13abdbd79e77542d1f01521f5
 ‰
 Yapp/src/main/java/yaroslavlebid/apps/myhome/ui/apartments/adapter/ApartmentListAdapter.kt,d\5\d568037e1a78065fb07c4f0ef6caf46b163543e8
-‚
-Rapp/src/main/java/yaroslavlebid/apps/myhome/ui/apartments/ApartmentListFragment.kt,a\e\ae9f83daea4db6289c41882703f76706d3cabb58
 
 Oapp/src/main/java/yaroslavlebid/apps/myhome/ui/apartments/ApartmentViewModel.kt,8\2\82d0c100ec08ff4e6e3cab09c5ebba60722b8e1d
-s
-Capp/src/main/java/yaroslavlebid/apps/myhome/ui/home/HomeActivity.kt,1\2\12aabd6d2d7f2319522b5058472fc4a940f2aca1
 x
 Happ/src/main/java/yaroslavlebid/apps/myhome/repository/UserRepository.kt,4\6\463a12aa58cf3a7b4db043c607622bfa5be7a389
 z
 Japp/src/main/java/yaroslavlebid/apps/myhome/ui/profile/ProfileViewModel.kt,f\0\f0589ea2debf181adc746e8974268676555f271f
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e

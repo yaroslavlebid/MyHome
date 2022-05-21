@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.FragmentSignInBinding
@@ -32,7 +34,8 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
             )
         }
         binding.goToSignUp.setOnClickListener {
-            SignUpFragment.show(parentFragmentManager)
+            val action = SignInFragmentDirections.actionSignInFragmentToSignUpFragment()
+            findNavController().navigate(action)
         }
     }
 
@@ -45,7 +48,8 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
 
             signInViewModel.loginStatus.observe(viewLifecycleOwner) { event ->
                 if (event.status == LoginStatus.SUCCESS) {
-                    HomeActivity.start(requireActivity())
+                    val action = SignInFragmentDirections.actionSignInFragmentToHomeActivity()
+                    findNavController().navigate(action)
                 } else {
                     val errorMessage = when(event.status) {
                         LoginStatus.CUSTOM_ERROR -> event.customMessage
