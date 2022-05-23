@@ -42,8 +42,14 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     private fun initObservers(binding: FragmentSignInBinding) {
         binding.run {
             signInViewModel.isLoading.observe(viewLifecycleOwner) {
-                if (it) binding.loadingIndicator.visibility = View.VISIBLE
-                else binding.loadingIndicator.visibility = View.GONE
+                if (it) {
+                    loadingIndicator.visibility = View.VISIBLE
+                    signIn.text = ""
+                }
+                else {
+                    loadingIndicator.visibility = View.GONE
+                    signIn.text = getString(R.string.sign_in_button_text)
+                }
             }
 
             signInViewModel.loginStatus.observe(viewLifecycleOwner) { event ->

@@ -56,14 +56,12 @@ class ProfileViewModel(
                    firstName: String = "",
                    lastName: String = "",
                    phoneNumber: String = "",
-                   photoUrl: String = "",
-                   dateOfBirth: String = "") {
+                   photoUrl: String = "") {
         if (email.isNotEmpty()) localUserProfile.email = email
         if (firstName.isNotEmpty()) localUserProfile.firstName = firstName
         if (lastName.isNotEmpty()) localUserProfile.lastName = lastName
         if (phoneNumber.isNotEmpty()) localUserProfile.phoneNumber = phoneNumber
         if (photoUrl.isNotEmpty()) localUserProfile.photoUrl = photoUrl
-        if (dateOfBirth.isNotEmpty()) localUserProfile.dateOfBirth = dateOfBirth
     }
 
     fun loadProfileImage(path: String) {

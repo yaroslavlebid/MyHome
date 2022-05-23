@@ -120,17 +120,17 @@
                 android:id="@+id/faq_icon"
                 android:layout_width="@dimen/my_profile_icon_size"
                 android:layout_height="wrap_content"
-                android:src="@drawable/quiz"
+                android:src="@drawable/add_circle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/my_orders_icon" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/faq"
+                android:id="@+id/add_apartment"
                 style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="FAQ"
+                android:text="Add apartment"
                 app:layout_constraintBottom_toBottomOf="@id/faq_icon"
                 app:layout_constraintStart_toEndOf="@id/faq_icon"
                 app:layout_constraintTop_toTopOf="@id/faq_icon" />
@@ -139,9 +139,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/my_profile_arrow_size"
                 android:src="@drawable/navigate_next"
-                app:layout_constraintBottom_toBottomOf="@id/faq"
+                app:layout_constraintBottom_toBottomOf="@id/add_apartment"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/faq" />
+                app:layout_constraintTop_toTopOf="@id/add_apartment" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -318,6 +318,34 @@
                 app:layout_constraintBottom_toBottomOf="@id/theme"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/theme" />
+
+            <ImageView
+                android:id="@+id/log_out_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/theme_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/logout"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Log out"
+                app:layout_constraintBottom_toBottomOf="@id/log_out_icon"
+                app:layout_constraintStart_toEndOf="@id/log_out_icon"
+                app:layout_constraintTop_toTopOf="@id/log_out_icon" />
+
+            <ImageView
+                android:id="@+id/logout_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/logout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/logout" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

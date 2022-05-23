@@ -11,6 +11,8 @@ interface AuthRepository {
     fun getCurrentFirebaseUser() : FirebaseUser?
 
     fun signIn (email: String, password: String): Task<AuthResult>
+
+    fun signOut()
 }
 
 class AuthRepositoryImpl(val auth: FirebaseAuth) : AuthRepository {
@@ -21,4 +23,6 @@ class AuthRepositoryImpl(val auth: FirebaseAuth) : AuthRepository {
     override fun getCurrentFirebaseUser() : FirebaseUser? = auth.currentUser
 
     override fun signIn(email: String, password: String) = auth.signInWithEmailAndPassword(email, password)
+
+    override fun signOut() = auth.signOut()
 }

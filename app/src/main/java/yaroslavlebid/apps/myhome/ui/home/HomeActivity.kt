@@ -26,4 +26,11 @@ class HomeActivity : AppCompatActivity() {
     override fun onBackPressed() {
         // do nothing
     }
+
+    companion object {
+        fun start(activity: Activity) {
+            val intent = Intent(activity, HomeActivity::class.java)
+            startActivity(activity, intent, null)
+        }
+    }
 }

@@ -33,8 +33,8 @@
         <item name="backgroundTint">@color/md_theme_dark_primaryContainer</item>
         <item name="android:paddingStart">40dp</item>
         <item name="android:paddingEnd">40dp</item>
-        <item name="android:paddingTop">15dp</item>
-        <item name="android:paddingBottom">15dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
         <item name="android:textSize">18sp</item>
         <item name="strokeColor">@color/grey_300</item>
         <item name="strokeWidth">1dp</item>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_home"
     app:startDestination="@id/search">
 
@@ -23,6 +24,9 @@
         <action
             android:id="@+id/action_profile_to_editProfileFragment2"
             app:destination="@id/editProfileFragment2" />
+        <action
+            android:id="@+id/action_profile_to_loginActivity"
+            app:destination="@id/loginActivity" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment2"
@@ -32,4 +36,9 @@
         android:id="@+id/favorite"
         android:name="yaroslavlebid.apps.myhome.ui.saved_apartments.SavedApartmentsFragment"
         android:label="SavedApartmentsFragment" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="yaroslavlebid.apps.myhome.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>

@@ -9,6 +9,7 @@ import yaroslavlebid.apps.myhome.repository.*
 import yaroslavlebid.apps.myhome.ui.apartments.ApartmentListViewModel
 import yaroslavlebid.apps.myhome.ui.login.sign_in.SignInViewModel
 import yaroslavlebid.apps.myhome.ui.login.sign_up.SignUpViewModel
+import yaroslavlebid.apps.myhome.ui.profile.MyProfileViewModel
 import yaroslavlebid.apps.myhome.ui.profile.ProfileViewModel
 
 val viewModelModule = module {
@@ -16,6 +17,7 @@ val viewModelModule = module {
     viewModel { SignInViewModel(get())}
     viewModel { ProfileViewModel(get(), get(), get()) }
     viewModel { ApartmentListViewModel(get()) }
+    viewModel { MyProfileViewModel(get())}
 }
 
 val repositoryModule = module {

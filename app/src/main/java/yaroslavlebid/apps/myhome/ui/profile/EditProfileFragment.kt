@@ -1,11 +1,20 @@
 package yaroslavlebid.apps.myhome.ui.profile
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.yanzhenjie.album.Album
+import java.io.File
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.FragmentEditProfileBinding
+import yaroslavlebid.apps.myhome.utils.setImageFromUrl
+import yaroslavlebid.apps.myhome.utils.setLocalImage
+import yaroslavlebid.apps.myhome.utils.stringToDate
 
 
 class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
@@ -18,15 +27,15 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentEditProfileBinding.bind(view)
 
-        /*initListenters(binding)
-        initObservers(binding)*/
+        initListenters(binding)
+        initObservers(binding)
 
         profileViewModel.initUser()
     }
 
-    /*private fun initListenters(binding: FragmentProfileSetupBinding) {
+    private fun initListenters(binding: FragmentEditProfileBinding) {
         binding.run {
-            profileImage.setOnClickListener {
+            profileHeader.profileImage.setOnClickListener {
                 pickProfileImage()
             }
 
@@ -36,14 +45,9 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
 
             confirmButton.setOnClickListener {
                 profileViewModel.updateUser(
-                    firstName = firstName.text.toString(),
-                    lastName = lastName.text.toString(),
-                    phoneNumber = phoneNumber.text.toString(),
-                    dateOfBirth = dateToString(
-                        dayOfBirth.text.toString().toInt(),
-                        monthOfBirth.text.toString().toInt(),
-                        yearOfBirth.text.toString().toInt()
-                    )
+                    firstName = firstName.editText?.text.toString(),
+                    lastName = lastName.editText?.text.toString(),
+                    phoneNumber = phoneNumber.editText?.text.toString(),
                 )
                 profileViewModel.confirmProfile()
             }
@@ -52,18 +56,27 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
 
     var tempImagePath = ""
 
-    private fun initObservers(binding: FragmentProfileSetupBinding) {
+    private fun initObservers(binding: FragmentEditProfileBinding) {
         profileViewModel.isLoading.observe(viewLifecycleOwner) {
-            if (it) binding.loadingIndicator.visibility = View.VISIBLE
-            else binding.loadingIndicator.visibility = View.GONE
+            if (it) {
+                binding.progressBarConfirm.visibility = View.VISIBLE
+                binding.confirmButton.text = ""
+            }
+            else {
+                binding.progressBarConfirm.visibility = View.GONE
+                binding.confirmButton.text = getString(R.string.confirm_button_text)
+            }
         }
 
         profileViewModel.canConfirmProfile.observe(viewLifecycleOwner) {
-            if (it) HomeActivity.start(requireActivity())
+            if (it) {
+                val action = EditProfileFragmentDirections.actionEditProfileFragmentToHomeActivity()
+                findNavController().navigate(action)
+            }
         }
 
         profileViewModel.isProfileImageLoaded.observe(viewLifecycleOwner) { result ->
-            if (result) binding.profileImage.setLocalImage(Uri.fromFile(File(tempImagePath)), true)
+            if (result) binding.profileHeader.profileImage.setLocalImage(Uri.fromFile(File(tempImagePath)), true)
             else {
                 Toast.makeText(
                     requireContext(),
@@ -76,20 +89,17 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
         profileViewModel.userLiveData.observe(viewLifecycleOwner) { user ->
             if (!user.isProfileOnlyWithEmail()) {
                 binding.run {
-                    profileImage.setImageFromUrl(user.photoUrl, true)
-                    firstName.setText(user.firstName)
-                    lastName.setText(user.lastName)
-                    val date = stringToDate(user.dateOfBirth)
-                    dayOfBirth.setText(date.dayOfMonth.toString())
-                    monthOfBirth.setText(date.monthValue.toString())
-                    yearOfBirth.setText(date.year.toString())
-                    phoneNumber.setText(user.phoneNumber)
+                    profileHeader.titleText.text = getString(R.string.edit_profile)
+                    profileHeader.profileImage.setImageFromUrl(user.photoUrl, true)
+                    firstName.editText?.setText(user.firstName)
+                    lastName.editText?.setText(user.lastName)
+                    phoneNumber.editText?.setText(user.phoneNumber)
                 }
             }
         }
-    }*/
+    }
 
-   /* private fun pickProfileImage() {
+   private fun pickProfileImage() {
         Album.image(this)
             .singleChoice()
             .camera(true)
@@ -104,5 +114,4 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
             }
             .start()
     }
-*/
 }
