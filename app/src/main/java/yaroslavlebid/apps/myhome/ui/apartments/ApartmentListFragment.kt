@@ -2,8 +2,10 @@ package yaroslavlebid.apps.myhome.ui.apartments
 
 import android.os.Bundle
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.lapism.search.widget.MaterialSearchView
 import com.lapism.search.widget.NavigationIconCompat
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,23 +36,25 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
             setOnClickListener {
                 binding.materialSearchView.requestFocus()
                 binding.searchHelper.root.visibility = View.VISIBLE
+                recyclerViewConstraintsTopToBottomOf(binding.recyclerView, binding.searchHelper.root.id)
                 binding.filterAndSortLayout.visibility = View.GONE
             }
             setNavigationOnClickListener {
                 binding.materialSearchView.requestFocus()
                 binding.searchHelper.root.visibility = View.VISIBLE
+                recyclerViewConstraintsTopToBottomOf(binding.recyclerView, binding.searchHelper.root.id)
                 binding.filterAndSortLayout.visibility = View.GONE
             }
         }
 
-        //val searchHelper = ViewSearchHelperBinding.inflate(layoutInflater)
+
         binding.materialSearchView.apply {
-            //addView(searchHelper.root)
             navigationIconCompat = NavigationIconCompat.ARROW
             setNavigationOnClickListener {
                 binding.materialSearchView.clearFocus()
                 binding.searchHelper.root.visibility = View.GONE
                 binding.filterAndSortLayout.visibility = View.VISIBLE
+                recyclerViewConstraintsTopToBottomOf(binding.recyclerView, binding.filterAndSortLayout.id)
             }
             setHint("Where are you going?")
             setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
@@ -94,6 +98,12 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
         apartmentViewModel.isLoading.observe(viewLifecycleOwner) {
             // todo: visible loading indicator
         }
+    }
+
+    private fun recyclerViewConstraintsTopToBottomOf(recyclerView: RecyclerView, viewId: Int) {
+        val params = recyclerView.layoutParams as ConstraintLayout.LayoutParams
+        params.topToBottom = viewId
+        recyclerView.requestLayout()
     }
 
 }

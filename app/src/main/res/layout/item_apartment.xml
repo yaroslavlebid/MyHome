@@ -17,12 +17,13 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/photo"
-            android:layout_width="match_parent"
-            android:layout_height="194dp"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/aparment_placeholder" />
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/aparment_placeholder" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_rating"
