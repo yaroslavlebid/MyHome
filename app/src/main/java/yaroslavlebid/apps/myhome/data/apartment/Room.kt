@@ -3,16 +3,13 @@ package yaroslavlebid.apps.myhome.data.apartment
 import java.util.*
 
 data class Room(
-    val description: String = "",
+    val name: String,
     val beds: List<Bed>,
+    val photo: Photo,
     val price: Price = Price(),
-    val square: Int = 0,
-    val numberOfRooms: Int = 0,
     val bookedDates: List<String> = listOf()
 )
 {
-    val amountOfBed: Int
-        get() = beds.size
     val peopleCapacity: Int
         get() {
             var sum = 0

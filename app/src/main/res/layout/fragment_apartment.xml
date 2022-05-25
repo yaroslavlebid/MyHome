@@ -12,7 +12,7 @@
         android:layout_margin="4dp">
 
         <ImageView
-            android:id="@+id/go_to_back"
+            android:id="@+id/go_to_back_arrow"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="5dp"
@@ -28,10 +28,21 @@
             android:layout_marginLeft="20dp"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            app:layout_constraintBottom_toBottomOf="@id/go_to_back"
-            app:layout_constraintStart_toEndOf="@id/go_to_back"
-            app:layout_constraintTop_toTopOf="@id/go_to_back"
+            app:layout_constraintBottom_toBottomOf="@id/go_to_back_arrow"
+            app:layout_constraintStart_toEndOf="@id/go_to_back_arrow"
+            app:layout_constraintTop_toTopOf="@id/go_to_back_arrow"
             tools:text="Grand Hotel Lviv" />
+
+        <ImageView
+            android:id="@+id/add_to_saved"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/go_to_back_arrow"
+            app:layout_constraintBottom_toBottomOf="@id/go_to_back_arrow"
+            android:src="@drawable/bookmark" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/photo_recycler"
@@ -42,7 +53,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/go_to_back"
+            app:layout_constraintTop_toBottomOf="@id/go_to_back_arrow"
             tools:listitem="@layout/item_opened_apartment" />
 
         <LinearLayout
@@ -117,14 +128,6 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
-            <ImageView
-                android:id="@+id/add_to_saved"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/bookmark" />
-
         </LinearLayout>
 
         <View
@@ -175,6 +178,48 @@
             app:layout_constraintTop_toBottomOf="@id/advantages_chips" />
 
         <TextView
+            android:id="@+id/reviews_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Reviews"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <LinearLayout
+            android:id="@+id/reviews_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reviews_label">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reviews_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_review" />
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="@color/devider_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reviews_layout" />
+
+        <TextView
             android:id="@+id/confirm_info_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -183,7 +228,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider2" />
+            app:layout_constraintTop_toBottomOf="@id/divider3" />
 
         <LinearLayout
             android:id="@+id/confirm_info_layout"
@@ -256,7 +301,8 @@
             android:id="@+id/book_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:text="Choose room"
             app:icon="@drawable/bed"
             app:layout_constraintEnd_toEndOf="parent"
