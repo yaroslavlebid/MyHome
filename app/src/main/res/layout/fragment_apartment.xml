@@ -258,7 +258,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="Choose room"
-            app:icon="@drawable/pin_drop"
+            app:icon="@drawable/bed"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/confirm_info_layout" />
