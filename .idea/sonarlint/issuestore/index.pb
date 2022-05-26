@@ -20,8 +20,6 @@ h
 8app/src/main/java/yaroslavlebid/apps/myhome/MyHomeApp.kt,0\5\05a5b0d2ecd5619800befff4630c7b32e1f77e4c
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 ~
 Napp/src/main/java/yaroslavlebid/apps/myhome/ui/login/sign_up/SignUpFragment.kt,8\a\8a5b7206c193c2ed4a7934aff12944612c59cf7f
 
