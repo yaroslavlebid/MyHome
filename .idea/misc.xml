@@ -30,6 +30,11 @@
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/filter_alt.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/grade.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/history.xml" value="0.1825" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/ic_error.xml" value="0.1825" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/ic_error_svgrepo_com.xml" value="0.1825" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/ic_success.xml" value="0.1825" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/ic_success_svgrepo_com__2_.xml" value="0.1825" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/ic_success_svgrepo_com__5_.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/info.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/language.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/lock.xml" value="0.1885" />
@@ -63,6 +68,7 @@
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_new_profile.xml" value="0.24199134199134198" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_order.xml" value="0.2381359555365541" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_payment.xml" value="0.24155622060709706" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_payment_result.xml" value="0.23899102180418982" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_profile_setup.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_room_list.xml" value="0.23899102180418982" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_saved_apartments.xml" value="0.2442982456140351" />
@@ -92,7 +98,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.2911458333333333" />
+        <option name="scale" value="0.23899102180418982" />
       </ProjectState>
     </option>
   </component>
