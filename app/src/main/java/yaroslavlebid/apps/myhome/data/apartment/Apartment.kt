@@ -2,7 +2,6 @@ package yaroslavlebid.apps.myhome.data.apartment
 
 import com.google.firebase.firestore.DocumentId
 import yaroslavlebid.apps.myhome.data.User
-import yaroslavlebid.apps.myhome.data.review.Review
 
 data class Apartment(
     @DocumentId
@@ -10,7 +9,7 @@ data class Apartment(
 
     val title: String = "",
     val description: String = "",
-    val photos: List<ApartmentPhoto> = listOf(),
+    val photos: List<Photo> = listOf(),
     val coverPhotoId: Int = 0,
     val location: ApartmentLocation = ApartmentLocation(),
     val author: User = User(),

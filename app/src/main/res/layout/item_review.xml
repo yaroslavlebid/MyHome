@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                tools:src="@drawable/person" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="Yaroslav" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:id="@+id/service_stars_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/review_star_size"
+                    android:layout_height="@dimen/review_star_size"
+                    android:src="@drawable/grade"
+                    app:tint="?android:colorPrimary" />
+
+                <ImageView
+                    android:layout_width="@dimen/review_star_size"
+                    android:layout_height="@dimen/review_star_size"
+                    android:src="@drawable/grade"
+                    app:tint="?android:colorPrimary" />
+
+                <ImageView
+                    android:layout_width="@dimen/review_star_size"
+                    android:layout_height="@dimen/review_star_size"
+                    android:src="@drawable/grade"
+                    app:tint="?android:colorPrimary" />
+
+                <ImageView
+                    android:layout_width="@dimen/review_star_size"
+                    android:layout_height="@dimen/review_star_size"
+                    android:src="@drawable/grade"
+                    app:tint="?android:colorPrimary" />
+
+                <ImageView
+                    android:layout_width="@dimen/review_star_size"
+                    android:layout_height="@dimen/review_star_size"
+                    android:src="@drawable/grade"
+                    app:tint="?android:colorPrimary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="@color/devider_color">
+
+            <TextView
+                android:id="@+id/comment_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                tools:text="I really like this apartment!\nI really like this apartment!\nI really like this apartment!" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/likes_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0" />
+
+            <ImageView
+                android:id="@+id/like_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/thumb_up"
+                app:tint="?android:colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

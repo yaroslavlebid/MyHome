@@ -51,14 +51,14 @@
             android:id="@+id/guests_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1 room - 1 adult"
+            android:text="@string/chip_people"
             app:icon="@drawable/ic_person" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calendar_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tue 17.05 - Fri 20.05"
+            android:text="@string/date_chip"
             app:icon="@drawable/event" />
 
     </LinearLayout>

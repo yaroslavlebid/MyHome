@@ -1,35 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_home"
     app:startDestination="@id/search">
 
     <fragment
         android:id="@+id/search"
-        android:name="yaroslavlebid.apps.myhome.ui.apartments.ApartmentListFragment"
-        android:label="ApartmentListFragment" />
+        android:name="yaroslavlebid.apps.myhome.ui.home.apartments.ApartmentListFragment"
+        android:label="ApartmentListFragment" >
+        <action
+            android:id="@+id/action_search_to_apartmentFragment"
+            app:destination="@id/apartmentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/calendar"
-        android:name="yaroslavlebid.apps.myhome.ui.calendar.CalendarFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.calendar.CalendarFragment"
         android:label="CalendarFragment" />
     <fragment
         android:id="@+id/map"
-        android:name="yaroslavlebid.apps.myhome.ui.map.MapFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.map.MapFragment"
         android:label="MapFragment" />
     <fragment
         android:id="@+id/profile"
-        android:name="yaroslavlebid.apps.myhome.ui.profile.MyProfileFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.MyProfileFragment"
         android:label="MyProfileFragment" >
         <action
             android:id="@+id/action_profile_to_editProfileFragment2"
             app:destination="@id/editProfileFragment2" />
+        <action
+            android:id="@+id/action_profile_to_loginActivity"
+            app:destination="@id/loginActivity" />
+        <action
+            android:id="@+id/action_profile_to_favorite"
+            app:destination="@id/favorite" />
+        <action
+            android:id="@+id/action_profile_to_addApartmentFragment"
+            app:destination="@id/addApartmentFragment" />
+        <action
+            android:id="@+id/action_profile_to_helpFragment"
+            app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_profile_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_profile_to_languageFragment"
+            app:destination="@id/languageFragment" />
+        <action
+            android:id="@+id/action_profile_to_myOrdersFragment"
+            app:destination="@id/myOrdersFragment" />
+        <action
+            android:id="@+id/action_profile_to_themeFragment"
+            app:destination="@id/themeFragment" />
+        <action
+            android:id="@+id/action_profile_to_addedApartmentsFragment"
+            app:destination="@id/addedApartmentsFragment" />
+        <action
+            android:id="@+id/action_profile_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment2"
-        android:name="yaroslavlebid.apps.myhome.ui.profile.EditProfileFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.edit_profile.EditProfileFragment"
         android:label="EditProfileFragment" />
     <fragment
         android:id="@+id/favorite"
-        android:name="yaroslavlebid.apps.myhome.ui.saved_apartments.SavedApartmentsFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.saved_apartments.SavedApartmentsFragment"
         android:label="SavedApartmentsFragment" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="yaroslavlebid.apps.myhome.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/apartmentFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.apartments.current_apartment.ApartmentFragment"
+        android:label="ApartmentFragment" >
+        <action
+            android:id="@+id/action_apartmentFragment_to_map"
+            app:destination="@id/map" />
+        <action
+            android:id="@+id/action_apartmentFragment_to_roomListFragment"
+            app:destination="@id/roomListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomListFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.apartments.current_apartment.room.RoomListFragment"
+        android:label="RoomListFragment" >
+        <action
+            android:id="@+id/action_roomListFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.apartments.current_apartment.order.OrderFragment"
+        android:label="OrderFragment" >
+        <action
+            android:id="@+id/action_orderFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.apartments.current_apartment.order.PaymentFragment"
+        android:label="PaymentFragment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_paymentResultFragment"
+            app:destination="@id/paymentResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentResultFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.apartments.current_apartment.order.PaymentResultFragment"
+        android:label="PaymentResultFragment" >
+        <action
+            android:id="@+id/action_paymentResultFragment_to_search"
+            app:destination="@id/search" />
+    </fragment>
+    <fragment
+        android:id="@+id/addApartmentFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.add_apartment.AddApartmentFragment"
+        android:label="AddApartmentFragment" >
+        <action
+            android:id="@+id/action_addApartmentFragment_to_addApartmentLastStepFragment"
+            app:destination="@id/addApartmentLastStepFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.help.HelpFragment"
+        android:label="HelpFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.history.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.settings.LanguageFragment"
+        android:label="LanguageFragment" />
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.my_orders.MyOrdersFragment"
+        android:label="MyOrdersFragment" />
+    <fragment
+        android:id="@+id/themeFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.settings.ThemeFragment"
+        android:label="ThemeFragment" />
+    <fragment
+        android:id="@+id/addedApartmentsFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.added_apartments.AddedApartmentsFragment"
+        android:label="AddedApartmentsFragment" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.notifications.NotificationsFragment"
+        android:label="NotificationsFragment" />
+    <fragment
+        android:id="@+id/addApartmentLastStepFragment"
+        android:name="layout.AddApartmentLastStepFragment"
+        android:label="AddApartmentLastStepFragment" >
+        <action
+            android:id="@+id/action_addApartmentLastStepFragment_to_addRoomFragment"
+            app:destination="@id/addRoomFragment" />
+        <action
+            android:id="@+id/action_addApartmentLastStepFragment_to_addedApartmentsFragment"
+            app:destination="@id/addedApartmentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRoomFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.room.AddRoomFragment"
+        android:label="AddRoomFragment" >
+        <action
+            android:id="@+id/action_addRoomFragment_to_addedApartmentsFragment"
+            app:destination="@id/addedApartmentsFragment" />
+        <action
+            android:id="@+id/action_addRoomFragment_self"
+            app:destination="@id/addRoomFragment" />
+    </fragment>
 </navigation>

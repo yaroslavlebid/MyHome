@@ -21,7 +21,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your e-mail"
+            android:hint="@string/enter_your_email"
             app:startIconDrawable="@drawable/mail"
             android:minHeight="48dp"
             app:errorEnabled="true">
@@ -38,7 +38,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Create a password"
+            android:hint="@string/create_a_password"
             android:minHeight="48dp"
             app:startIconDrawable="@drawable/lock"
             app:endIconMode="password_toggle"
@@ -55,7 +55,7 @@
             android:id="@+id/repeat_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Repeat your password"
+            android:hint="@string/repeat_passowrd"
             android:minHeight="48dp"
             app:startIconDrawable="@drawable/lock"
             app:endIconMode="password_toggle"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Create account">
+            android:text="@string/create_account">
 
         </com.google.android.material.button.MaterialButton>
 

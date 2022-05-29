@@ -17,12 +17,13 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/photo"
-            android:layout_width="match_parent"
-            android:layout_height="194dp"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/aparment_placeholder" />
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/aparment_placeholder" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip_rating"
@@ -44,7 +45,7 @@
                 android:layout_alignEnd="@id/photo"
                 android:layout_alignBottom="@id/photo"
                 android:layout_marginEnd="15dp"
-                android:text="From 125$ / day"
+                android:text="@string/from_price_per_day"
                 app:chipCornerRadius="30dp"
                 app:chipIcon="@drawable/payments" />
         </RelativeLayout>
@@ -105,17 +106,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="Details"
+                android:text="@string/details"
                 app:icon="@drawable/info"/>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Map"
+                android:text="@string/map"
                 app:icon="@drawable/pin_drop"/>
 
             <View
-                android:layout_width="110dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="0dp"/>
 
             <ImageView

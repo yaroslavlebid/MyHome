@@ -6,16 +6,18 @@ import com.google.firebase.storage.FirebaseStorage
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import yaroslavlebid.apps.myhome.repository.*
-import yaroslavlebid.apps.myhome.ui.apartments.ApartmentListViewModel
+import yaroslavlebid.apps.myhome.ui.home.apartments.ApartmentListViewModel
 import yaroslavlebid.apps.myhome.ui.login.sign_in.SignInViewModel
 import yaroslavlebid.apps.myhome.ui.login.sign_up.SignUpViewModel
-import yaroslavlebid.apps.myhome.ui.profile.ProfileViewModel
+import yaroslavlebid.apps.myhome.ui.home.my_profile.MyProfileViewModel
+import yaroslavlebid.apps.myhome.ui.edit_profile.ProfileViewModel
 
 val viewModelModule = module {
     viewModel { SignUpViewModel(get(), get()) }
     viewModel { SignInViewModel(get())}
     viewModel { ProfileViewModel(get(), get(), get()) }
     viewModel { ApartmentListViewModel(get()) }
+    viewModel { MyProfileViewModel(get()) }
 }
 
 val repositoryModule = module {
