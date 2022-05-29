@@ -52,6 +52,12 @@
         <action
             android:id="@+id/action_profile_to_themeFragment"
             app:destination="@id/themeFragment" />
+        <action
+            android:id="@+id/action_profile_to_addedApartmentsFragment"
+            app:destination="@id/addedApartmentsFragment" />
+        <action
+            android:id="@+id/action_profile_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
     </fragment>
     <fragment
         android:id="@+id/editProfileFragment2"
@@ -112,7 +118,11 @@
     <fragment
         android:id="@+id/addApartmentFragment"
         android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.add_apartment.AddApartmentFragment"
-        android:label="AddApartmentFragment" />
+        android:label="AddApartmentFragment" >
+        <action
+            android:id="@+id/action_addApartmentFragment_to_addApartmentLastStepFragment"
+            app:destination="@id/addApartmentLastStepFragment" />
+    </fragment>
     <fragment
         android:id="@+id/helpFragment"
         android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.help.HelpFragment"
@@ -133,4 +143,34 @@
         android:id="@+id/themeFragment"
         android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.settings.ThemeFragment"
         android:label="ThemeFragment" />
+    <fragment
+        android:id="@+id/addedApartmentsFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.added_apartments.AddedApartmentsFragment"
+        android:label="AddedApartmentsFragment" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.notifications.NotificationsFragment"
+        android:label="NotificationsFragment" />
+    <fragment
+        android:id="@+id/addApartmentLastStepFragment"
+        android:name="layout.AddApartmentLastStepFragment"
+        android:label="AddApartmentLastStepFragment" >
+        <action
+            android:id="@+id/action_addApartmentLastStepFragment_to_addRoomFragment"
+            app:destination="@id/addRoomFragment" />
+        <action
+            android:id="@+id/action_addApartmentLastStepFragment_to_addedApartmentsFragment"
+            app:destination="@id/addedApartmentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRoomFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.room.AddRoomFragment"
+        android:label="AddRoomFragment" >
+        <action
+            android:id="@+id/action_addRoomFragment_to_addedApartmentsFragment"
+            app:destination="@id/addedApartmentsFragment" />
+        <action
+            android:id="@+id/action_addRoomFragment_self"
+            app:destination="@id/addRoomFragment" />
+    </fragment>
 </navigation>

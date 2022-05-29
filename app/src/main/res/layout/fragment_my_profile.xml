@@ -117,7 +117,7 @@
                 app:layout_constraintTop_toTopOf="@id/my_orders" />
 
             <ImageView
-                android:id="@+id/faq_icon"
+                android:id="@+id/add_apartment_icon"
                 android:layout_width="@dimen/my_profile_icon_size"
                 android:layout_height="wrap_content"
                 android:src="@drawable/add_circle"
@@ -131,9 +131,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Add apartment"
-                app:layout_constraintBottom_toBottomOf="@id/faq_icon"
-                app:layout_constraintStart_toEndOf="@id/faq_icon"
-                app:layout_constraintTop_toTopOf="@id/faq_icon" />
+                app:layout_constraintBottom_toBottomOf="@id/add_apartment_icon"
+                app:layout_constraintStart_toEndOf="@id/add_apartment_icon"
+                app:layout_constraintTop_toTopOf="@id/add_apartment_icon" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -142,6 +142,33 @@
                 app:layout_constraintBottom_toBottomOf="@id/add_apartment"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/add_apartment" />
+
+            <ImageView
+                android:id="@+id/added_apartments_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/paid"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/add_apartment_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/added_apartment"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Added apartments"
+                app:layout_constraintBottom_toBottomOf="@id/added_apartments_icon"
+                app:layout_constraintStart_toEndOf="@id/added_apartments_icon"
+                app:layout_constraintTop_toTopOf="@id/added_apartments_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/added_apartment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/added_apartment" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -230,6 +257,33 @@
                 app:layout_constraintBottom_toBottomOf="@id/favorite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/favorite" />
+
+            <ImageView
+                android:id="@+id/notifications_icon"
+                android:layout_width="@dimen/my_profile_icon_size"
+                android:layout_height="wrap_content"
+                android:src="@drawable/notifications"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/favorite_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/notifications"
+                style="@style/Theme.MyHome.MyProfileTitleTextSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Notifications"
+                app:layout_constraintBottom_toBottomOf="@id/notifications_icon"
+                app:layout_constraintStart_toEndOf="@id/notifications_icon"
+                app:layout_constraintTop_toTopOf="@id/notifications_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/my_profile_arrow_size"
+                android:src="@drawable/navigate_next"
+                app:layout_constraintBottom_toBottomOf="@id/notifications"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/notifications" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
