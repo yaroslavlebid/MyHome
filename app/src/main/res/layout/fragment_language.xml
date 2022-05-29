@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:maxLines="1"
-            android:text="Language"
+            android:text="@string/language"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:paddingStart="15dp"
-                android:text="English"
+                android:text="@string/english"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:paddingStart="15dp"
-                android:text="Ukrainian"
+                android:text="@string/ukrainian"
                 android:textSize="18sp" />
         </RadioGroup>
 

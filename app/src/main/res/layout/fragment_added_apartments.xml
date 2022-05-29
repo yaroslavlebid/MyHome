@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:maxLines="1"
-            android:text="Added apartments"
+            android:text="@string/added_apartments"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
     </androidx.appcompat.widget.Toolbar>

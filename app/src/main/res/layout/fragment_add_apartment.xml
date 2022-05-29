@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:maxLines="1"
-                android:text="Add apartment"
+                android:text="@string/add_apartment"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
         </androidx.appcompat.widget.Toolbar>
@@ -44,7 +44,7 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Title"
+                android:hint="@string/title"
                 android:minHeight="48dp"
                 app:errorEnabled="true"
                 app:startIconDrawable="@drawable/title">
@@ -61,7 +61,7 @@
                 android:id="@+id/subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description"
+                android:hint="@string/description"
                 android:minHeight="48dp"
                 app:errorEnabled="true"
                 app:startIconDrawable="@drawable/ic_description">
@@ -78,7 +78,7 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Location"
+                android:hint="@string/location"
                 android:minHeight="48dp"
                 app:errorEnabled="true"
                 app:startIconDrawable="@drawable/home_pin">
@@ -95,7 +95,7 @@
                 android:id="@+id/iban"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your IBAN to get payments"
+                android:hint="@string/enter_your_iban"
                 android:minHeight="48dp"
                 app:errorEnabled="true"
                 app:startIconDrawable="@drawable/payments_small">
@@ -114,7 +114,7 @@
             android:id="@+id/type_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select type:"
+            android:text="@string/select_type"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -132,28 +132,28 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:paddingStart="10dp"
-                android:text="Private house" />
+                android:text="@string/private_house" />
 
             <RadioButton
                 android:id="@+id/flat_radio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
-                android:text="Flat" />
+                android:text="@string/flat" />
 
             <RadioButton
                 android:id="@+id/hotel_radio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
-                android:text="Hotel" />
+                android:text="@string/hotel" />
         </RadioGroup>
 
         <TextView
             android:id="@+id/add_photo_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add some photos (max 10): "
+            android:text="@string/add_some_photos"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -175,7 +175,7 @@
             android:id="@+id/advice_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="*Long press to choose cover photo"
+            android:text="@string/long_press_to_choose_cover"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/photo_recycler" />
@@ -185,7 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Select advantages in your apartment"
+            android:text="@string/select_advantages"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -201,61 +201,61 @@
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Free Wi-Fi"
+                android:text="@string/free_wifi"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/wifi" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Free parking"
+                android:text="@string/free_parking"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/local_parking" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Breakfest"
+                android:text="@string/breakfest"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/local_cafe" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bar"
+                android:text="@string/bar"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/local_bar" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Restaurant"
+                android:text="@string/restaurant"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/restaurant" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Transfer"
+                android:text="@string/transfer"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/emoji_transportation" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Service"
+                android:text="@string/service"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/cleaning_services" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Non-smoking rooms"
+                android:text="@string/non_smoking_rooms"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/smoke_free" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pets allowed"
+                android:text="@string/pets_allowed"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/pets" />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Facilities for disabled guests"
+                android:text="@string/facilities_for_disabled"
                 style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/accessible" />
 
@@ -265,7 +265,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/advantages_chips"
-            android:text="Continue"
+            android:text="@string/continue"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

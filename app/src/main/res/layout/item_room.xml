@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
                 android:gravity="center"
-                android:text="125 USD/day"
+                android:text="@string/room_price_per_day"
                 android:textAppearance="?attr/textAppearanceHeadline5"
                 android:textSize="16sp" />
 
@@ -129,7 +129,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Book"
+                android:text="@string/book"
                 app:icon="@drawable/shopping_basket" />
 
         </LinearLayout>

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:maxLines="1"
-            android:text="Room 1/10"
+            android:text="@string/room_counter"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -47,7 +47,7 @@
             android:id="@+id/room_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Title"
+            android:hint="@string/title_add_room"
             android:minHeight="48dp"
             app:errorEnabled="true"
             app:startIconDrawable="@drawable/title">
@@ -64,7 +64,7 @@
             android:id="@+id/single_bed_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="How many single beds?"
+            android:hint="@string/how_many_single"
             android:minHeight="48dp"
             app:errorEnabled="true"
             app:startIconDrawable="@drawable/single_bed_small">
@@ -81,7 +81,7 @@
             android:id="@+id/double_bed_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="How many double beds?"
+            android:hint="@string/how_many_double_beds"
             android:minHeight="48dp"
             app:errorEnabled="true"
             app:startIconDrawable="@drawable/bed_small">
@@ -98,7 +98,7 @@
             android:id="@+id/bunk_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="How many bunks?"
+            android:hint="@string/how_many_bunks"
             android:minHeight="48dp"
             app:errorEnabled="true"
             app:startIconDrawable="@drawable/bunk_small">
@@ -115,7 +115,7 @@
             android:id="@+id/bunk_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Price for day"
+            android:hint="@string/price_for_day"
             android:minHeight="48dp"
             app:errorEnabled="true"
             app:startIconDrawable="@drawable/payments_small">
@@ -134,7 +134,7 @@
         android:id="@+id/finish_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next room"
+        android:text="@string/next_room"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear_layout_info" />

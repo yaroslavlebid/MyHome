@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:maxLines="1"
-            android:text="History"
+            android:text="@string/history"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
     </androidx.appcompat.widget.Toolbar>

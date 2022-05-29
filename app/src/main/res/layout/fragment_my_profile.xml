@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Edit profile"
+        android:text="@string/edit_profile"
         android:textSize="14sp"
         app:icon="@drawable/edit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="Info"
+            android:text="@string/info"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_profile_button" />
 
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Help"
+                android:text="@string/help"
                 app:layout_constraintBottom_toBottomOf="@id/help_icon"
                 app:layout_constraintStart_toEndOf="@id/help_icon"
                 app:layout_constraintTop_toTopOf="@id/help_icon" />
@@ -103,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="My Orders"
+                android:text="@string/my_orders"
                 app:layout_constraintBottom_toBottomOf="@id/my_orders_icon"
                 app:layout_constraintStart_toEndOf="@id/my_orders_icon"
                 app:layout_constraintTop_toTopOf="@id/my_orders_icon" />
@@ -130,7 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Add apartment"
+                android:text="@string/add_apartment"
                 app:layout_constraintBottom_toBottomOf="@id/add_apartment_icon"
                 app:layout_constraintStart_toEndOf="@id/add_apartment_icon"
                 app:layout_constraintTop_toTopOf="@id/add_apartment_icon" />
@@ -157,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Added apartments"
+                android:text="@string/added_apartments"
                 app:layout_constraintBottom_toBottomOf="@id/added_apartments_icon"
                 app:layout_constraintStart_toEndOf="@id/added_apartments_icon"
                 app:layout_constraintTop_toTopOf="@id/added_apartments_icon" />
@@ -178,7 +178,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="Content"
+            android:text="@string/content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/info_layout" />
 
@@ -218,7 +218,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="History"
+                android:text="@string/history"
                 app:layout_constraintBottom_toBottomOf="@id/history_icon"
                 app:layout_constraintStart_toEndOf="@id/history_icon"
                 app:layout_constraintTop_toTopOf="@id/history_icon" />
@@ -245,7 +245,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Favorite"
+                android:text="@string/favorite"
                 app:layout_constraintBottom_toBottomOf="@id/favorite_icon"
                 app:layout_constraintStart_toEndOf="@id/favorite_icon"
                 app:layout_constraintTop_toTopOf="@id/favorite_icon" />
@@ -272,7 +272,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Notifications"
+                android:text="@string/notifications"
                 app:layout_constraintBottom_toBottomOf="@id/notifications_icon"
                 app:layout_constraintStart_toEndOf="@id/notifications_icon"
                 app:layout_constraintTop_toTopOf="@id/notifications_icon" />
@@ -293,7 +293,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="Settings"
+            android:text="@string/settings"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/content_layout" />
 
@@ -333,7 +333,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Language"
+                android:text="@string/language"
                 app:layout_constraintBottom_toBottomOf="@id/language_icon"
                 app:layout_constraintStart_toEndOf="@id/language_icon"
                 app:layout_constraintTop_toTopOf="@id/language_icon" />
@@ -360,7 +360,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Theme"
+                android:text="@string/theme"
                 app:layout_constraintBottom_toBottomOf="@id/theme_icon"
                 app:layout_constraintStart_toEndOf="@id/theme_icon"
                 app:layout_constraintTop_toTopOf="@id/theme_icon" />
@@ -387,7 +387,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Log out"
+                android:text="@string/log_out"
                 app:layout_constraintBottom_toBottomOf="@id/log_out_icon"
                 app:layout_constraintStart_toEndOf="@id/log_out_icon"
                 app:layout_constraintTop_toTopOf="@id/log_out_icon" />

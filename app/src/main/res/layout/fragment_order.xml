@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:maxLines="1"
-                android:text="Confirm booking"
+                android:text="@string/confrim_booking"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
         </androidx.appcompat.widget.Toolbar>
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Customer info"
+            android:text="@string/customer_info"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
                 android:id="@+id/first_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="First name"
+                android:hint="@string/first_name"
                 android:minHeight="48dp"
                 app:errorEnabled="true"
                 app:startIconDrawable="@drawable/person">
@@ -92,7 +92,7 @@
                 android:id="@+id/last_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Last name"
+                android:hint="@string/last_name"
                 android:minHeight="48dp"
                 app:errorEnabled="true"
                 app:startIconDrawable="@drawable/person">
@@ -108,7 +108,7 @@
                 android:id="@+id/phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Phone number"
+                android:hint="@string/phone_number"
                 android:minHeight="48dp"
                 app:errorEnabled="true"
                 app:prefixText="+38"
@@ -144,7 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Selected date: "
+                    android:text="@string/selected_date"
                     android:textSize="18sp" />
 
                 <View
@@ -153,6 +153,7 @@
                     android:layout_weight="1" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/selected_date_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="false"
@@ -171,7 +172,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Selected persons: "
+                    android:text="@string/selected_persons"
                     android:textSize="18sp" />
 
                 <View
@@ -180,6 +181,7 @@
                     android:layout_weight="1" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/selected_persons_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="false"
@@ -225,7 +227,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:letterSpacing="0.03"
-                android:text="Total: 500 USD"
+                android:text="@string/total_price"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -238,7 +240,7 @@
             android:layout_marginTop="10dp"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:text="Go to payment"
+            android:text="@string/go_to_payment"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

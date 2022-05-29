@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:maxLines="1"
-            android:text="Language"
+            android:text="@string/theme"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:paddingStart="15dp"
-                android:text="Day"
+                android:text="@string/day"
                 android:textSize="18sp" />
 
             <RadioButton
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:paddingStart="15dp"
-                android:text="Night"
+                android:text="@string/night"
                 android:textSize="18sp" />
         </RadioGroup>
 

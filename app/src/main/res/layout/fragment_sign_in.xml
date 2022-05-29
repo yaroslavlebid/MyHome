@@ -24,7 +24,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-mail"
+            android:hint="@string/email"
             android:minHeight="48dp"
             app:startIconDrawable="@drawable/mail"
             app:errorEnabled="true">
@@ -41,7 +41,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/password"
             android:minHeight="48dp"
             app:endIconMode="password_toggle"
             app:startIconDrawable="@drawable/lock"
