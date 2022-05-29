@@ -116,7 +116,8 @@
                 app:icon="@drawable/pin_drop"/>
 
             <View
-                android:layout_width="110dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="0dp"/>
 
             <ImageView

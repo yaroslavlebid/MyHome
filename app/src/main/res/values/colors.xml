@@ -32,13 +32,13 @@
 
 
     <!--Dark-->
-    <color name="md_theme_dark_primary">#7c43bd</color>
+    <color name="md_theme_dark_primary">#1a237e</color>
     <color name="md_theme_dark_onPrimary">#ffffff</color>
     <color name="md_theme_dark_primaryContainer">#910816</color>
     <color name="md_theme_dark_onPrimaryContainer">#FFDAD5</color>
     <color name="md_theme_dark_secondary">#4FD8EB</color>
     <color name="md_theme_dark_onSecondary">#00363D</color>
-    <color name="md_theme_dark_secondaryContainer">#895699</color>
+    <color name="md_theme_dark_secondaryContainer">#534bae</color>
     <color name="md_theme_dark_onSecondaryContainer">@color/white</color>
     <color name="md_theme_dark_tertiary">#FFB1CB</color>
     <color name="md_theme_dark_onTertiary">#5E1033</color>
