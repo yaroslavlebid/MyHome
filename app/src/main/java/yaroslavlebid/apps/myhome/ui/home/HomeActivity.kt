@@ -6,11 +6,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.ActivityHomeBinding
-import yaroslavlebid.apps.myhome.ui.apartments.ApartmentListFragment
 
 class HomeActivity : AppCompatActivity() {
 

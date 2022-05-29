@@ -31,7 +31,7 @@
         android:label="HomeActivity" />
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="yaroslavlebid.apps.myhome.ui.profile.EditProfileFragment"
+        android:name="yaroslavlebid.apps.myhome.ui.edit_profile.EditProfileFragment"
         android:label="EditProfileFragment" >
         <action
             android:id="@+id/action_editProfileFragment_to_homeActivity"

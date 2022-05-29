@@ -61,9 +61,13 @@
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/activity_profile.xml" value="0.2911458333333333" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/activity_search_test.xml" value="0.1" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_apartment.xml" value="0.2879999900124293" />
-        <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_apartment_list.xml" value="0.21818181061547676" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_apartment_list.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_calendar.xml" value="0.24517543859649124" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_help.xml" value="0.2381359555365541" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_history.xml" value="0.23899102180418982" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_language.xml" value="0.23899102180418982" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_map.xml" value="0.24517543859649124" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_my_orders.xml" value="0.2381359555365541" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_my_profile.xml" value="0.2866666666666667" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_new_profile.xml" value="0.24199134199134198" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_order.xml" value="0.2381359555365541" />
@@ -74,6 +78,7 @@
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_saved_apartments.xml" value="0.2442982456140351" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_sign_in.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_sign_up.xml" value="0.2911458333333333" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/layout/fragment_theme.xml" value="0.23899102180418982" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/item_apartment.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/item_opened_apartment.xml" value="0.23899102180418982" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/layout/item_review.xml" value="0.16905901116427433" />
