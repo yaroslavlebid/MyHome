@@ -7,6 +7,7 @@ object RegistrationStatusMap {
         RegistrationStatus.ERROR_PASSWORD_EMPTY -> "Enter your password"
         RegistrationStatus.ERROR_PASSWORD_TOO_SHORT -> "Password length must be more than 6 symbols"
         RegistrationStatus.ERROR_DEFAULT -> "Registration failed."
+        RegistrationStatus.INCORRECT_EMAIL -> "Incorrect email. Try again please."
         else -> "Authentication failed"
     }
 }
@@ -16,6 +17,7 @@ enum class RegistrationStatus {
     ERROR_PASSWORD_TOO_SHORT,
     ERROR_PASSWORD_EMPTY,
     ERROR_EMAIL_EMPTY,
+    INCORRECT_EMAIL,
     ERROR_DEFAULT,
     CUSTOM_ERROR
 }

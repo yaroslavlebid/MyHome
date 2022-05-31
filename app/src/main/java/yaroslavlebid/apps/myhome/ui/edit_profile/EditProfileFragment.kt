@@ -1,17 +1,24 @@
 package yaroslavlebid.apps.myhome.ui.edit_profile
 
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.yanzhenjie.album.Album
+import com.yanzhenjie.album.api.widget.Widget
 import java.io.File
+import org.koin.android.ext.android.getKoin
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.qualifier.named
 import timber.log.Timber
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.databinding.FragmentEditProfileBinding
+import yaroslavlebid.apps.myhome.utils.getText
 import yaroslavlebid.apps.myhome.utils.setImageFromUrl
 import yaroslavlebid.apps.myhome.utils.setLocalImage
 
@@ -21,15 +28,27 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
     private val profileViewModel: ProfileViewModel by viewModel()
 
     private lateinit var binding: FragmentEditProfileBinding
+    private lateinit var albumWidget: Widget
+
+    private val editProfileFragmentArgs: EditProfileFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentEditProfileBinding.bind(view)
+        when (getResources().getConfiguration().uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_YES -> albumWidget = getKoin().get<Widget>(named("dark_widget"))
+            Configuration.UI_MODE_NIGHT_NO -> albumWidget = getKoin().get<Widget>(named("light_widget"))
+        }
 
+        initViews(binding)
         initListenters(binding)
         initObservers(binding)
 
         profileViewModel.initUser()
+    }
+
+    private fun initViews(binding: FragmentEditProfileBinding) {
+        binding.confirmButton.isEnabled = false
     }
 
     private fun initListenters(binding: FragmentEditProfileBinding) {
@@ -40,6 +59,19 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
 
             changePicture.setOnClickListener {
                 pickProfileImage()
+            }
+
+            firstName.editText?.doOnTextChanged { _, _, _, _ ->
+                requestEnableConfirmButton(this)
+            }
+            lastName.editText?.doOnTextChanged { _, _, _, _ ->
+                requestEnableConfirmButton(this)
+            }
+            phoneNumber.editText?.doOnTextChanged { _, _, _, _ ->
+                requestEnableConfirmButton(this)
+            }
+            privacyCheckBox.setOnCheckedChangeListener { _, _ ->
+                requestEnableConfirmButton(this)
             }
 
             confirmButton.setOnClickListener {
@@ -67,10 +99,14 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
             }
         }
 
-        profileViewModel.canConfirmProfile.observe(viewLifecycleOwner) {
+        profileViewModel.isProfileConfirmed.observe(viewLifecycleOwner) {
             if (it) {
-                val action = EditProfileFragmentDirections.actionEditProfileFragmentToHomeActivity()
-                findNavController().navigate(action)
+                if (editProfileFragmentArgs.isItFirstSetup) {
+                    val action = EditProfileFragmentDirections.actionEditProfileFragmentToHomeActivity()
+                    findNavController().navigate(action)
+                } else {
+                    findNavController().popBackStack()
+                }
             }
         }
 
@@ -94,13 +130,26 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
                     lastName.editText?.setText(user.lastName)
                     phoneNumber.editText?.setText(user.phoneNumber)
                 }
+            } else {
+                binding.profileHeader.titleText.text = getString(R.string.set_up_your_profile_text)
             }
+        }
+
+        profileViewModel.canConfirmProfile.observe(viewLifecycleOwner) {
+            binding.confirmButton.isEnabled = it
+        }
+    }
+
+    private fun requestEnableConfirmButton(binding: FragmentEditProfileBinding) {
+        binding.run {
+            profileViewModel.requestCanConfirmProfile(firstName.getText(), lastName.getText(), phoneNumber.getText(), privacyCheckBox.isChecked)
         }
     }
 
    private fun pickProfileImage() {
         Album.image(this)
             .singleChoice()
+            .widget(albumWidget)
             .camera(true)
             .onResult {
                 it.firstOrNull()?.let {

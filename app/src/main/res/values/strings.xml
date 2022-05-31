@@ -37,7 +37,7 @@
     <string name="non_smoking_rooms">Non-smoking rooms</string>
     <string name="pets_allowed">Pets allowed</string>
     <string name="facilities_for_disabled">Facilities for disabled guests</string>
-    <string name="continue">Continue</string>
+    <string name="continue_text">Continue</string>
     <string name="last_step">Last step</string>
     <string name="preview">Preview:</string>
     <string name="how_many_single">How many single beds?</string>
@@ -103,4 +103,9 @@
     <string name="set_up_your_profile_text">Set up your profile</string>
     <string name="chip_people">1 adult - 1 child</string>
     <string name="date_chip">Tue 17.05 - Fri 20.05</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="password_error">Password length must be 6+ symb from English alphabet</string>
+    <string name="something_went_wrong">Something went wrong, try again later...</string>
+    <string name="passwords_are_different">Passwords are different</string>
+    <string name="select_image">Select image</string>
 </resources>

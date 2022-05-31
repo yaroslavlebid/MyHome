@@ -1,6 +1,5 @@
 package yaroslavlebid.apps.myhome.ui.login.sign_up
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -36,7 +35,8 @@ class SignUpViewModel(
                             registrationTimestamp = System.currentTimeMillis()
                         )
                         userRepository.addUserToDb(newUser)
-                        _registrationStatus.value = Event<RegistrationStatus>(RegistrationStatus.SUCCESS)
+                        _registrationStatus.value =
+                            Event<RegistrationStatus>(RegistrationStatus.SUCCESS)
                         Timber.d("Success register user with id: ${firebaseUser.uid}}")
                         return@addOnSuccessListener
                     }.run {
@@ -52,7 +52,10 @@ class SignUpViewModel(
                     if (error.message == null) {
                         event = Event<RegistrationStatus>(RegistrationStatus.ERROR_DEFAULT)
                     } else {
-                        event = Event<RegistrationStatus>(RegistrationStatus.CUSTOM_ERROR, error.message.toString())
+                        event = Event<RegistrationStatus>(
+                            RegistrationStatus.CUSTOM_ERROR,
+                            error.message.toString()
+                        )
                     }
                     _registrationStatus.value = event
                 }

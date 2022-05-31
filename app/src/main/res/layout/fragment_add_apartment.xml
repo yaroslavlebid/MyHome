@@ -20,7 +20,7 @@
             app:navigationIcon="@drawable/arrow_back">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/title_toolbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -75,7 +75,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/title"
+                android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/location"
@@ -199,76 +199,86 @@
             app:layout_constraintTop_toBottomOf="@id/advantages_label">
 
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/free_wifi"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/wifi" />
+
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/free_parking"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/local_parking" />
+
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/breakfest"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/local_cafe" />
+
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bar"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/local_bar" />
+
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/restaurant"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/restaurant" />
+
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/transfer"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/emoji_transportation" />
+
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/service"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/cleaning_services" />
+
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/non_smoking_rooms"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/smoke_free" />
+
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pets_allowed"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/pets" />
+
             <com.google.android.material.chip.Chip
+                style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/facilities_for_disabled"
-                style="@style/Theme.MyHome.AdvantageChip"
                 app:chipIcon="@drawable/accessible" />
 
         </com.google.android.material.chip.ChipGroup>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/continue_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/advantages_chips"
-            android:text="@string/continue"
             android:layout_marginTop="10dp"
+            android:text="@string/continue_text"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/advantages_chips" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

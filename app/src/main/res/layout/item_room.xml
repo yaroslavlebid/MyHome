@@ -82,7 +82,7 @@
                         app:chipIconSize="30dp" />
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/single_bed_chip"
+                        android:id="@+id/person_count_chip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
