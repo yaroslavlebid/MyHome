@@ -37,8 +37,15 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentEditProfileBinding.bind(view)
         when (getResources().getConfiguration().uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-            Configuration.UI_MODE_NIGHT_YES -> albumWidget = getKoin().get<Widget>(named("dark_widget"))
-            Configuration.UI_MODE_NIGHT_NO -> albumWidget = getKoin().get<Widget>(named("light_widget"))
+            Configuration.UI_MODE_NIGHT_YES -> albumWidget =
+                getKoin().get<Widget>(named("dark_widget"))
+            Configuration.UI_MODE_NIGHT_NO -> albumWidget =
+                getKoin().get<Widget>(named("light_widget"))
+        }
+        if (!editProfileFragmentArgs.isItFirstSetup) {
+            requireActivity().getOnBackPressedDispatcher().addCallback(this) {
+                findNavController().popBackStack()
+            }
         }
         if (!editProfileFragmentArgs.isItFirstSetup) {
             requireActivity().getOnBackPressedDispatcher().addCallback(this) {
@@ -108,8 +115,7 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
             if (it) {
                 binding.progressBarConfirm.visibility = View.VISIBLE
                 binding.confirmButton.text = ""
-            }
-            else {
+            } else {
                 binding.progressBarConfirm.visibility = View.GONE
                 binding.confirmButton.text = getString(R.string.confirm_button_text)
             }
@@ -118,7 +124,8 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
         profileViewModel.isProfileConfirmed.observe(viewLifecycleOwner) {
             if (it) {
                 if (editProfileFragmentArgs.isItFirstSetup) {
-                    val action = EditProfileFragmentDirections.actionEditProfileFragmentToHomeActivity()
+                    val action =
+                        EditProfileFragmentDirections.actionEditProfileFragmentToHomeActivity()
                     findNavController().navigate(action)
                 } else {
                     findNavController().popBackStack()
@@ -127,7 +134,13 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
         }
 
         profileViewModel.isProfileImageLoaded.observe(viewLifecycleOwner) { result ->
-            if (result) binding.profileHeader.profileImage.setLocalImage(Uri.fromFile(File(tempImagePath)), true)
+            if (result) binding.profileHeader.profileImage.setLocalImage(
+                Uri.fromFile(
+                    File(
+                        tempImagePath
+                    )
+                ), true
+            )
             else {
                 Toast.makeText(
                     requireContext(),
@@ -157,11 +170,16 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
 
     private fun requestEnableConfirmButton(binding: FragmentEditProfileBinding) {
         binding.run {
-            profileViewModel.requestCanConfirmProfile(firstName.getText(), lastName.getText(), phoneNumber.getText(), privacyCheckBox.isChecked)
+            profileViewModel.requestCanConfirmProfile(
+                firstName.getText(),
+                lastName.getText(),
+                phoneNumber.getText(),
+                privacyCheckBox.isChecked
+            )
         }
     }
 
-   private fun pickProfileImage() {
+    private fun pickProfileImage() {
         Album.image(this)
             .singleChoice()
             .widget(albumWidget)
