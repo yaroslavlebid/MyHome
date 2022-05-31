@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -39,6 +40,11 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
             Configuration.UI_MODE_NIGHT_YES -> albumWidget = getKoin().get<Widget>(named("dark_widget"))
             Configuration.UI_MODE_NIGHT_NO -> albumWidget = getKoin().get<Widget>(named("light_widget"))
         }
+        if (!editProfileFragmentArgs.isItFirstSetup) {
+            requireActivity().getOnBackPressedDispatcher().addCallback(this) {
+                findNavController().popBackStack()
+            }
+        }
 
         initViews(binding)
         initListenters(binding)
@@ -49,6 +55,16 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
 
     private fun initViews(binding: FragmentEditProfileBinding) {
         binding.confirmButton.isEnabled = false
+        if (editProfileFragmentArgs.isItFirstSetup) {
+            binding.profileHeader.titleText.text = getString(R.string.set_up_your_profile_text)
+            binding.profileHeader.toolbar.navigationIcon = null
+        } else {
+            binding.profileHeader.titleText.text = getString(R.string.edit_profile)
+            binding.profileHeader.toolbar.setNavigationIcon(R.drawable.arrow_back)
+            binding.profileHeader.toolbar.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
     }
 
     private fun initListenters(binding: FragmentEditProfileBinding) {
@@ -124,7 +140,6 @@ class EditProfileFragment : Fragment(R.layout.fragment_edit_profile) {
         profileViewModel.userLiveData.observe(viewLifecycleOwner) { user ->
             if (!user.isProfileOnlyWithEmail()) {
                 binding.run {
-                    profileHeader.titleText.text = getString(R.string.edit_profile)
                     profileHeader.profileImage.setImageFromUrl(user.photoUrl, true)
                     firstName.editText?.setText(user.firstName)
                     lastName.editText?.setText(user.lastName)

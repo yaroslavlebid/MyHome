@@ -22,7 +22,7 @@ val viewModelModule = module {
     viewModel { SignInViewModel(get())}
     viewModel { ProfileViewModel(get(), get(), get()) }
     viewModel { ApartmentListViewModel(get()) }
-    viewModel { MyProfileViewModel(get()) }
+    viewModel { MyProfileViewModel(get(), get()) }
 }
 
 val repositoryModule = module {

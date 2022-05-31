@@ -9,6 +9,7 @@ import yaroslavlebid.apps.myhome.repository.AuthRepository
 import yaroslavlebid.apps.myhome.repository.StorageRepository
 import yaroslavlebid.apps.myhome.repository.UserRepository
 import java.io.File
+import yaroslavlebid.apps.myhome.utils.toUser
 
 class ProfileViewModel(
     private val authRepository: AuthRepository,
@@ -39,7 +40,7 @@ class ProfileViewModel(
             _isLoading.value = true
             userRepository.getUserById(firebaseCurrentUser.uid)
                 .addOnSuccessListener { dataSnapshot ->
-                    var user = dataSnapshot.toObject(User::class.java)
+                    var user = dataSnapshot.toUser()
                     if (user == null) {
                         Timber.e("Cannot fetch user from db, error!")
                         return@addOnSuccessListener

@@ -17,11 +17,3 @@ q
 Aapp/src/main/java/yaroslavlebid/apps/myhome/data/review/Rating.kt,1\3\13fb8dbc018ada81e761a9818afd1a5af6e3578f
 }
 Mapp/src/main/java/yaroslavlebid/apps/myhome/repository/ApartmentRepository.kt,1\d\1deea13ac061f105b7a065901b4725b869f0841c
-x
-Happ/src/main/java/yaroslavlebid/apps/myhome/repository/AuthRepository.kt,1\c\1c65cc97b7bb30c4cca0cf8ac05962609a0a0869
-x
-Happ/src/main/java/yaroslavlebid/apps/myhome/repository/UserRepository.kt,4\6\463a12aa58cf3a7b4db043c607622bfa5be7a389
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-s
-Capp/src/main/java/yaroslavlebid/apps/myhome/ui/home/HomeActivity.kt,1\2\12aabd6d2d7f2319522b5058472fc4a940f2aca1

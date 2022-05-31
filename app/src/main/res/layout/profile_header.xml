@@ -4,15 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/title_text"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center"
-        style="@style/Theme.MyHome.MyProfileTitle"
+        android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?colorPrimary"
+        app:navigationIcon="@drawable/arrow_back">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:maxLines="1"
+            android:layout_gravity="center"
+            style="@style/Theme.MyHome.MyProfileTitle"
+            android:text="@string/set_up_your_profile_text"
+            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <View
         android:id="@+id/view"
@@ -21,7 +34,7 @@
         android:background="@drawable/profile_header_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_text"/>
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
     <RelativeLayout
         android:id="@+id/profile_photo_layout"
