@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.lapism.search.widget.MaterialSearchView
 import com.lapism.search.widget.NavigationIconCompat
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -28,63 +28,81 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
         initObservers(binding)
 
         apartmentViewModel.requestApartments()
-
-        binding.materialSearchBar.apply {
-            navigationIconCompat = NavigationIconCompat.SEARCH
-            setHint("Search")
-            setOnClickListener {
-                binding.materialSearchView.requestFocus()
-                binding.searchHelper.root.visibility = View.VISIBLE
-                recyclerViewConstraintsTopToBottomOf(binding.recyclerView, binding.searchHelper.root.id)
-                binding.filterAndSortLayout.visibility = View.GONE
-            }
-            setNavigationOnClickListener {
-                binding.materialSearchView.requestFocus()
-                binding.searchHelper.root.visibility = View.VISIBLE
-                recyclerViewConstraintsTopToBottomOf(binding.recyclerView, binding.searchHelper.root.id)
-                binding.filterAndSortLayout.visibility = View.GONE
-            }
-        }
-
-
-        binding.materialSearchView.apply {
-            navigationIconCompat = NavigationIconCompat.ARROW
-            setNavigationOnClickListener {
-                binding.materialSearchView.clearFocus()
-                binding.searchHelper.root.visibility = View.GONE
-                binding.filterAndSortLayout.visibility = View.VISIBLE
-                recyclerViewConstraintsTopToBottomOf(binding.recyclerView, binding.filterAndSortLayout.id)
-            }
-            setHint("Where are you going?")
-            setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
-                override fun onQueryTextChange(newText: CharSequence) {
-                }
-
-                override fun onQueryTextSubmit(query: CharSequence) {
-
-                }
-            })
-            setOnFocusChangeListener(object : MaterialSearchView.OnFocusChangeListener {
-                override fun onFocusChange(hasFocus: Boolean) {
-
-                }
-            })
-        }
-
-        //searchHelper.horizontalScroll.setOnClickListener { searchHelper.horizontalScroll.requestFocus() }
-
-
-
-        //apartmentViewModel.addMockApartmentsToDb()
     }
 
     private fun initViews(binding: FragmentApartmentListBinding) {
-        val adapter = ApartmentListAdapter(apartmentList)
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.adapter = adapter
+        binding.run {
+            val adapter = ApartmentListAdapter(apartmentList).apply {
+                onItemClickListener = {
+                    val action = ApartmentListFragmentDirections.actionSearchToApartmentFragment(it)
+                    findNavController().navigate(action)
+                }
+                bookmarkClickListener = {
+                    apartmentViewModel.addApartmentToFavorite(it)
+                }
+                onMapClickListener = {
+                    val action = ApartmentListFragmentDirections.actionSearchToMap()
+                    findNavController().navigate(action)
+                }
+            }
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.adapter = adapter
+
+            materialSearchBar.apply {
+                navigationIconCompat = NavigationIconCompat.SEARCH
+                setHint(context.getString(R.string.search_hint))
+            }
+            materialSearchView.apply {
+                navigationIconCompat = NavigationIconCompat.ARROW
+                setHint(context.getString(R.string.where_are_you_going_hint))
+            }
+
+            swipeRefresh.setOnRefreshListener {
+                apartmentViewModel.requestApartments()
+            }
+        }
     }
 
     private fun initListeners(binding: FragmentApartmentListBinding) {
+        binding.run {
+            materialSearchBar.apply {
+                setOnClickListener {
+                    materialSearchView.requestFocus()
+                    searchHelper.root.visibility = View.VISIBLE
+                    swipeRefresh.constraintsTopToBottomOf(searchHelper.root.id)
+                    filterAndSortLayout.visibility = View.GONE
+                }
+                setNavigationOnClickListener {
+                    materialSearchView.requestFocus()
+                    searchHelper.root.visibility = View.VISIBLE
+                    swipeRefresh.constraintsTopToBottomOf(searchHelper.root.id)
+                    filterAndSortLayout.visibility = View.GONE
+                }
+            }
+
+            materialSearchView.apply {
+                setNavigationOnClickListener {
+                    materialSearchView.clearFocus()
+                    searchHelper.root.visibility = View.GONE
+                    filterAndSortLayout.visibility = View.VISIBLE
+                    swipeRefresh.constraintsTopToBottomOf(filterAndSortLayout.id)
+                }
+
+                setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
+                    override fun onQueryTextChange(newText: CharSequence) {
+                    }
+
+                    override fun onQueryTextSubmit(query: CharSequence) {
+
+                    }
+                })
+                setOnFocusChangeListener(object : MaterialSearchView.OnFocusChangeListener {
+                    override fun onFocusChange(hasFocus: Boolean) {
+
+                    }
+                })
+            }
+        }
     }
 
     private fun initObservers(binding: FragmentApartmentListBinding) {
@@ -95,14 +113,15 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
         }
 
         apartmentViewModel.isLoading.observe(viewLifecycleOwner) {
-            // todo: visible loading indicator
+            binding.swipeRefresh.isRefreshing = it
         }
+
     }
 
-    private fun recyclerViewConstraintsTopToBottomOf(recyclerView: RecyclerView, viewId: Int) {
-        val params = recyclerView.layoutParams as ConstraintLayout.LayoutParams
+    private fun View.constraintsTopToBottomOf(viewId: Int) {
+        val params = this.layoutParams as ConstraintLayout.LayoutParams
         params.topToBottom = viewId
-        recyclerView.requestLayout()
+        this.requestLayout()
     }
 
 }

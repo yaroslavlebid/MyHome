@@ -29,6 +29,12 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
     </style>
 
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- Set the theme of the Activity that directly follows your splash screen. -->
+        <!-- Required -->
+        <item name="postSplashScreenTheme">@style/Theme.MyHome</item>
+    </style>
+
     <style name="FabStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

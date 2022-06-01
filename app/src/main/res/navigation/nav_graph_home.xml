@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_search_to_apartmentFragment"
             app:destination="@id/apartmentFragment" />
+        <action
+            android:id="@+id/action_search_to_map"
+            app:destination="@id/map" />
     </fragment>
     <fragment
         android:id="@+id/calendar"
@@ -71,7 +74,14 @@
     <fragment
         android:id="@+id/favorite"
         android:name="yaroslavlebid.apps.myhome.ui.home.saved_apartments.SavedApartmentsFragment"
-        android:label="SavedApartmentsFragment" />
+        android:label="SavedApartmentsFragment" >
+        <action
+            android:id="@+id/action_favorite_to_apartmentFragment"
+            app:destination="@id/apartmentFragment" />
+        <action
+            android:id="@+id/action_favorite_to_map"
+            app:destination="@id/map" />
+    </fragment>
     <activity
         android:id="@+id/loginActivity"
         android:name="yaroslavlebid.apps.myhome.ui.login.LoginActivity"
@@ -87,6 +97,9 @@
         <action
             android:id="@+id/action_apartmentFragment_to_roomListFragment"
             app:destination="@id/roomListFragment" />
+        <argument
+            android:name="apartment"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.Apartment" />
     </fragment>
     <fragment
         android:id="@+id/roomListFragment"

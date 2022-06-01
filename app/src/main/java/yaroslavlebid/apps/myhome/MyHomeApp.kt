@@ -4,8 +4,8 @@ import android.app.Application
 import com.yanzhenjie.album.Album
 import com.yanzhenjie.album.AlbumConfig
 import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
+import timber.log.Timber
 import yaroslavlebid.apps.myhome.utils.MediaLoader
 
 class MyHomeApp : Application() {
@@ -25,5 +25,7 @@ class MyHomeApp : Application() {
             AlbumConfig.newBuilder(this)
                 .setAlbumLoader(MediaLoader())
                 .build());
+
+        Timber.plant(Timber.DebugTree())
     }
 }

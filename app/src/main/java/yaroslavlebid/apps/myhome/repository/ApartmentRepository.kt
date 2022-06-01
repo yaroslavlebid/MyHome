@@ -6,8 +6,8 @@ import com.google.firebase.firestore.QuerySnapshot
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
 import yaroslavlebid.apps.myhome.data.apartment.ApartmentLocation
 import yaroslavlebid.apps.myhome.data.apartment.Photo
-
-private const val COLLECTION_APARTMENTS = "apartments"
+import yaroslavlebid.apps.myhome.data.apartment.Price
+import yaroslavlebid.apps.myhome.repository.firestore.COLLECTION_APARTMENTS
 
 interface ApartmentRepository {
     fun getApartmentList(): Task<QuerySnapshot>
@@ -27,7 +27,8 @@ class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepo
             coverPhotoId = 0,
             location = ApartmentLocation(city = "Lviv", street = "Vyacheslava Chornovola str.", numberOfHouse = "7"),
             ratingAvg = 4.1f,
-            publicationTimestamp = System.currentTimeMillis()
+            publicationTimestamp = System.currentTimeMillis(),
+            minRoomPrice = Price()
         )
 
         val apartment2 = Apartment(

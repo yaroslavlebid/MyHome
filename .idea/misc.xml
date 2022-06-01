@@ -9,6 +9,7 @@
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable-night/profile_header_background.xml" value="0.1885" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable-night/profile_header_background_no_corners.xml" value="0.1885" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable-night/shape.xml" value="0.154" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/drawable-night/splash_background.xml" value="0.136" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable-notnight/auth_background.xml" value="0.154" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable-v24/ic_person.xml" value="0.1885" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable-v24/outline_cloud_upload_24.xml" value="0.1825" />
@@ -24,6 +25,7 @@
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/bed.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/bed_small.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/bookmark.xml" value="0.1825" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/bookmark_filled.xml" value="0.136" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/bunk.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/bunk_small.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/card_expiration_date.xml" value="0.1825" />
@@ -59,12 +61,14 @@
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/profile_header_background.xml" value="0.1885" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/profile_header_background_no_corners.xml" value="0.1885" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/quiz.xml" value="0.1825" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/save_apartment.xml" value="0.136" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/shape.xml" value="0.154" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/share.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/shopping_basket.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/shopping_cart.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/single_bed.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/single_bed_small.xml" value="0.1825" />
+        <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/splash_background.xml" value="0.136" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/star.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/subtitle.xml" value="0.1825" />
         <entry key="..\:/Projects/MyHome/app/src/main/res/drawable/thumb_up.xml" value="0.1825" />

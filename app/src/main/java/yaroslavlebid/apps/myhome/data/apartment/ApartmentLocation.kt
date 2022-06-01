@@ -1,5 +1,9 @@
 package yaroslavlebid.apps.myhome.data.apartment
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class ApartmentLocation(
     val country: String = "",
     val city: String = "",
@@ -7,4 +11,4 @@ data class ApartmentLocation(
     val numberOfHouse: String = "",
     val coordsX: Double = 0.0,
     val coordsY: Double = 0.0,
-)
+) : Parcelable

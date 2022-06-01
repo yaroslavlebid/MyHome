@@ -3,26 +3,35 @@ package yaroslavlebid.apps.myhome
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.yanzhenjie.album.Album
 import com.yanzhenjie.album.api.widget.Widget
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import org.koin.dsl.single
-import yaroslavlebid.apps.myhome.repository.*
+import yaroslavlebid.apps.myhome.repository.ApartmentRepository
+import yaroslavlebid.apps.myhome.repository.ApartmentRepositoryImpl
+import yaroslavlebid.apps.myhome.repository.AuthRepository
+import yaroslavlebid.apps.myhome.repository.AuthRepositoryImpl
+import yaroslavlebid.apps.myhome.repository.FavoriteRepository
+import yaroslavlebid.apps.myhome.repository.FavoriteRepositoryImpl
+import yaroslavlebid.apps.myhome.repository.StorageRepository
+import yaroslavlebid.apps.myhome.repository.StorageRepositoryImpl
+import yaroslavlebid.apps.myhome.repository.UserRepository
+import yaroslavlebid.apps.myhome.repository.UserRepositoryImpl
+import yaroslavlebid.apps.myhome.ui.edit_profile.ProfileViewModel
 import yaroslavlebid.apps.myhome.ui.home.apartments.ApartmentListViewModel
+import yaroslavlebid.apps.myhome.ui.home.my_profile.MyProfileViewModel
+import yaroslavlebid.apps.myhome.ui.home.saved_apartments.SavedApartmentsViewModel
 import yaroslavlebid.apps.myhome.ui.login.sign_in.SignInViewModel
 import yaroslavlebid.apps.myhome.ui.login.sign_up.SignUpViewModel
-import yaroslavlebid.apps.myhome.ui.home.my_profile.MyProfileViewModel
-import yaroslavlebid.apps.myhome.ui.edit_profile.ProfileViewModel
 
 val viewModelModule = module {
     viewModel { SignUpViewModel(get(), get()) }
     viewModel { SignInViewModel(get())}
     viewModel { ProfileViewModel(get(), get(), get()) }
-    viewModel { ApartmentListViewModel(get()) }
+    viewModel { ApartmentListViewModel(get(), get()) }
     viewModel { MyProfileViewModel(get(), get()) }
+    viewModel { SavedApartmentsViewModel(get()) }
 }
 
 val repositoryModule = module {
@@ -30,6 +39,7 @@ val repositoryModule = module {
     single<UserRepository> { UserRepositoryImpl(get()) }
     single<StorageRepository> { StorageRepositoryImpl(get()) }
     single<ApartmentRepository> { ApartmentRepositoryImpl(get())}
+    single<FavoriteRepository> { FavoriteRepositoryImpl(get())}
 }
 
 val utilsModule = module {

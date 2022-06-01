@@ -108,4 +108,6 @@
     <string name="something_went_wrong">Something went wrong, try again later...</string>
     <string name="passwords_are_different">Passwords are different</string>
     <string name="select_image">Select image</string>
+    <string name="search_hint">Search</string>
+    <string name="where_are_you_going_hint">Where are you going?</string>
 </resources>
