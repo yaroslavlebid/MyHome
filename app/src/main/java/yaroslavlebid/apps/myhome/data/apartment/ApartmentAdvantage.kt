@@ -6,6 +6,4 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ApartmentAdvantage(
     val title: String = "",
-    val description: String = "",
-    val iconResId: Int = 0
 ) : Parcelable

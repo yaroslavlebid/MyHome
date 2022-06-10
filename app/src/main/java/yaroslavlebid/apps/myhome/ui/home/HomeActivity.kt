@@ -21,9 +21,10 @@ class HomeActivity : AppCompatActivity() {
         val navController = Navigation.findNavController(this, R.id.fragment_container)
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id != R.id.search && destination.id != R.id.calendar
+            if (destination.id != R.id.search
                 && destination.id != R.id.map && destination.id != R.id.favorite
-                && destination.id != R.id.profile) {
+                && destination.id != R.id.profile
+            ) {
                 binding.bottomNavigation.visibility = View.GONE
             } else {
                 binding.bottomNavigation.visibility = View.VISIBLE

@@ -199,6 +199,7 @@
             app:layout_constraintTop_toBottomOf="@id/advantages_label">
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/wifi"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -206,6 +207,7 @@
                 app:chipIcon="@drawable/wifi" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/parking"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -213,6 +215,7 @@
                 app:chipIcon="@drawable/local_parking" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/breakfest"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -220,6 +223,7 @@
                 app:chipIcon="@drawable/local_cafe" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/bar"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -227,6 +231,7 @@
                 app:chipIcon="@drawable/local_bar" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/restoraunt"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -234,6 +239,7 @@
                 app:chipIcon="@drawable/restaurant" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/transfer"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -241,6 +247,7 @@
                 app:chipIcon="@drawable/emoji_transportation" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/service"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -248,6 +255,7 @@
                 app:chipIcon="@drawable/cleaning_services" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/nonsmoke"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -255,6 +263,7 @@
                 app:chipIcon="@drawable/smoke_free" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/pets"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -262,6 +271,7 @@
                 app:chipIcon="@drawable/pets" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/accessible"
                 style="@style/Theme.MyHome.AdvantageChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

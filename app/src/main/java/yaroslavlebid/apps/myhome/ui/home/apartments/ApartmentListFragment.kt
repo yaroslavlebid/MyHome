@@ -34,7 +34,7 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
         binding.run {
             val adapter = ApartmentListAdapter(apartmentList).apply {
                 onItemClickListener = {
-                    val action = ApartmentListFragmentDirections.actionSearchToApartmentFragment(it)
+                    val action = ApartmentListFragmentDirections.actionSearchToApartmentFragment(it, "0", "0")
                     findNavController().navigate(action)
                 }
                 bookmarkClickListener = {

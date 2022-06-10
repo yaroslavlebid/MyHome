@@ -16,11 +16,6 @@
         android:icon="@drawable/search"
         android:title="Search" />
     <item
-        android:id="@+id/calendar"
-        android:enabled="true"
-        android:icon="@drawable/event"
-        android:title="Calendar" />
-    <item
         android:id="@+id/map"
         android:enabled="true"
         android:icon="@drawable/map"

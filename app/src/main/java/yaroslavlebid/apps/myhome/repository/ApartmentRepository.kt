@@ -1,6 +1,8 @@
 package yaroslavlebid.apps.myhome.repository
 
 import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
@@ -12,11 +14,22 @@ import yaroslavlebid.apps.myhome.repository.firestore.COLLECTION_APARTMENTS
 interface ApartmentRepository {
     fun getApartmentList(): Task<QuerySnapshot>
 
+    fun getApartmentById(id: String): Task<DocumentSnapshot>
+
+    fun addApartmentToDb(apartment: Apartment): Task<Void>
+
     fun addMockApartmentsToDb()
 }
 
 class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepository {
     override fun getApartmentList() = db.collection(COLLECTION_APARTMENTS).get()
+
+    override fun addApartmentToDb(apartment: Apartment) = db.collection(COLLECTION_APARTMENTS).document(apartment.id).set(apartment)
+
+    override fun getApartmentById(id: String): Task<DocumentSnapshot> = db.collection(COLLECTION_APARTMENTS).document(id).get()
+
+
+
 
     //fixme: for test
     override fun addMockApartmentsToDb() {

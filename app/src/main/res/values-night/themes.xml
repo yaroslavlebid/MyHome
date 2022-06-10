@@ -59,7 +59,7 @@
         <item name="chipIconVisible">true</item>
         <item name="checkedIconVisible">false</item>
         <item name="closeIconVisible">false</item>
-
+        <item name="chipCornerRadius">25dp</item>
         <item name="checkedIcon">@drawable/ic_mtrl_chip_checked_black</item>
 
         <item name="android:textColor">@color/mtrl_choice_chip_text_color</item>

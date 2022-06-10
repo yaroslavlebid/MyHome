@@ -43,30 +43,35 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/star1"
                     android:layout_width="@dimen/review_star_size"
                     android:layout_height="@dimen/review_star_size"
                     android:src="@drawable/grade"
                     app:tint="?android:colorPrimary" />
 
                 <ImageView
+                    android:id="@+id/star2"
                     android:layout_width="@dimen/review_star_size"
                     android:layout_height="@dimen/review_star_size"
                     android:src="@drawable/grade"
                     app:tint="?android:colorPrimary" />
 
                 <ImageView
+                    android:id="@+id/star3"
                     android:layout_width="@dimen/review_star_size"
                     android:layout_height="@dimen/review_star_size"
                     android:src="@drawable/grade"
                     app:tint="?android:colorPrimary" />
 
                 <ImageView
+                    android:id="@+id/star4"
                     android:layout_width="@dimen/review_star_size"
                     android:layout_height="@dimen/review_star_size"
                     android:src="@drawable/grade"
                     app:tint="?android:colorPrimary" />
 
                 <ImageView
+                    android:id="@+id/star5"
                     android:layout_width="@dimen/review_star_size"
                     android:layout_height="@dimen/review_star_size"
                     android:src="@drawable/grade"

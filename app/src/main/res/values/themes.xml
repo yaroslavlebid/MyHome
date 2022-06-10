@@ -117,7 +117,7 @@
 
     <style name="Theme.MyHome.AdvantageChip">
         <item name="android:checkable">true</item>
-
+        <item name="chipCornerRadius">25dp</item>
         <item name="chipIconVisible">true</item>
         <item name="checkedIconVisible">false</item>
         <item name="closeIconVisible">false</item>

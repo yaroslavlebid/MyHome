@@ -32,7 +32,7 @@ class SavedApartmentsFragment : Fragment(R.layout.fragment_saved_apartments) {
             val adapter = ApartmentListAdapter(apartmentList).apply {
                 onItemClickListener = {
                     val action =
-                        SavedApartmentsFragmentDirections.actionFavoriteToApartmentFragment(it)
+                        SavedApartmentsFragmentDirections.actionFavoriteToApartmentFragment(it, "0", "0")
                     findNavController().navigate(action)
                 }
                 bookmarkClickListener = {

@@ -9,6 +9,6 @@ data class ApartmentLocation(
     val city: String = "",
     val street: String = "",
     val numberOfHouse: String = "",
-    val coordsX: Double = 0.0,
-    val coordsY: Double = 0.0,
+    val longitude: Double = 0.0,
+    val latitude: Double = 0.0,
 ) : Parcelable

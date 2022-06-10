@@ -8,19 +8,24 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import yaroslavlebid.apps.myhome.data.apartment.Apartment
 import yaroslavlebid.apps.myhome.repository.ApartmentRepository
 import yaroslavlebid.apps.myhome.repository.ApartmentRepositoryImpl
 import yaroslavlebid.apps.myhome.repository.AuthRepository
 import yaroslavlebid.apps.myhome.repository.AuthRepositoryImpl
 import yaroslavlebid.apps.myhome.repository.FavoriteRepository
 import yaroslavlebid.apps.myhome.repository.FavoriteRepositoryImpl
+import yaroslavlebid.apps.myhome.repository.ReviewRepository
+import yaroslavlebid.apps.myhome.repository.ReviewRepositoryImpl
 import yaroslavlebid.apps.myhome.repository.StorageRepository
 import yaroslavlebid.apps.myhome.repository.StorageRepositoryImpl
 import yaroslavlebid.apps.myhome.repository.UserRepository
 import yaroslavlebid.apps.myhome.repository.UserRepositoryImpl
 import yaroslavlebid.apps.myhome.ui.edit_profile.ProfileViewModel
 import yaroslavlebid.apps.myhome.ui.home.apartments.ApartmentListViewModel
+import yaroslavlebid.apps.myhome.ui.home.apartments.current_apartment.ApartmentViewModel
 import yaroslavlebid.apps.myhome.ui.home.my_profile.MyProfileViewModel
+import yaroslavlebid.apps.myhome.ui.home.my_profile.add_apartment.AddApartmentViewModel
 import yaroslavlebid.apps.myhome.ui.home.saved_apartments.SavedApartmentsViewModel
 import yaroslavlebid.apps.myhome.ui.login.sign_in.SignInViewModel
 import yaroslavlebid.apps.myhome.ui.login.sign_up.SignUpViewModel
@@ -32,6 +37,8 @@ val viewModelModule = module {
     viewModel { ApartmentListViewModel(get(), get()) }
     viewModel { MyProfileViewModel(get(), get()) }
     viewModel { SavedApartmentsViewModel(get()) }
+    viewModel { ApartmentViewModel(get(), get()) }
+    viewModel { AddApartmentViewModel(get(), get()) }
 }
 
 val repositoryModule = module {
@@ -40,6 +47,7 @@ val repositoryModule = module {
     single<StorageRepository> { StorageRepositoryImpl(get()) }
     single<ApartmentRepository> { ApartmentRepositoryImpl(get())}
     single<FavoriteRepository> { FavoriteRepositoryImpl(get())}
+    single<ReviewRepository> { ReviewRepositoryImpl(get())}
 }
 
 val utilsModule = module {
