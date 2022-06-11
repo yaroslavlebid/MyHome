@@ -39,7 +39,7 @@ class SavedApartmentsFragment : Fragment(R.layout.fragment_saved_apartments) {
                     savedApartmentsViewModel.removeApartmentFromFavorites(it.id)
                 }
                 onMapClickListener = {
-                    val action = SavedApartmentsFragmentDirections.actionFavoriteToMap()
+                    val action = SavedApartmentsFragmentDirections.actionFavoriteToMap(arrayOf(it.location))
                     findNavController().navigate(action)
                 }
                 isSavedInFavorite = true

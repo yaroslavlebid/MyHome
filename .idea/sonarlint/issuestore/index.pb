@@ -27,8 +27,6 @@ Yapp/src/main/java/yaroslavlebid/apps/myhome/ui/home/apartments/RequestApartment
 Tapp/src/main/java/yaroslavlebid/apps/myhome/ui/home/my_profile/MyProfileViewModel.kt,b\3\b362bcd1899fc3af92d9c5d7fae45411fb07801e
 {
 Kapp/src/main/java/yaroslavlebid/apps/myhome/data/apartment/ApartmentType.kt,4\4\444f04df51c56f853b22d4cca8409b3832935349
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 €
 Papp/src/main/java/yaroslavlebid/apps/myhome/exceptions/DocumentParseException.kt,0\e\0ecae25327073ca3468f7c83c4553b927c0be6c0
 r

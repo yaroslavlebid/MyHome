@@ -19,7 +19,11 @@
     <fragment
         android:id="@+id/map"
         android:name="yaroslavlebid.apps.myhome.ui.home.map.MapFragment"
-        android:label="MapFragment" />
+        android:label="MapFragment" >
+        <argument
+            android:name="markers"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.ApartmentLocation[]" />
+    </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.MyProfileFragment"

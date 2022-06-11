@@ -15,6 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
 import yaroslavlebid.apps.myhome.databinding.FragmentApartmentListBinding
+import yaroslavlebid.apps.myhome.ui.home.HomeActivity
 import yaroslavlebid.apps.myhome.ui.home.apartments.adapter.ApartmentListAdapter
 import yaroslavlebid.apps.myhome.utils.toSelectedDate
 
@@ -49,7 +50,7 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
                     apartmentViewModel.addApartmentToFavorite(it)
                 }
                 onMapClickListener = {
-                    val action = ApartmentListFragmentDirections.actionSearchToMap()
+                    val action = ApartmentListFragmentDirections.actionSearchToMap(arrayOf(it.location))
                     findNavController().navigate(action)
                 }
             }
@@ -122,6 +123,7 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
 
     private fun initObservers(binding: FragmentApartmentListBinding) {
         apartmentViewModel.apartments.observe(viewLifecycleOwner) { resultList ->
+            (requireActivity() as HomeActivity).locations = resultList.map { it.location }.toTypedArray()
             apartmentList.clear()
             apartmentList.addAll(resultList)
             binding.recyclerView.adapter?.notifyDataSetChanged()
