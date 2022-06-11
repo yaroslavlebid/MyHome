@@ -102,6 +102,9 @@
         <argument
             android:name="selectedDates"
             app:argType="string" />
+        <action
+            android:id="@+id/action_apartmentFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
     </fragment>
     <fragment
         android:id="@+id/roomListFragment"
@@ -110,6 +113,9 @@
         <action
             android:id="@+id/action_roomListFragment_to_orderFragment"
             app:destination="@id/orderFragment" />
+        <argument
+            android:name="apartment"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.Apartment" />
     </fragment>
     <fragment
         android:id="@+id/orderFragment"
@@ -118,6 +124,21 @@
         <action
             android:id="@+id/action_orderFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />
+        <argument
+            android:name="apartment"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.Apartment" />
+        <argument
+            android:name="room"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.Room"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="selectedDate"
+            app:argType="string" />
+        <argument android:name="selectedPersons" />
+        <argument
+            android:name="isRoom"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
@@ -169,7 +190,11 @@
     <fragment
         android:id="@+id/addedApartmentsFragment"
         android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.added_apartments.AddedApartmentsFragment"
-        android:label="AddedApartmentsFragment" />
+        android:label="AddedApartmentsFragment" >
+        <action
+            android:id="@+id/action_addedApartmentsFragment_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.notifications.NotificationsFragment"

@@ -61,9 +61,4 @@ class ApartmentListViewModel(
             Timber.e("Can't remove $apartment from favorites")
         }
     }
-
-    // fixme: for test
-    fun addMockApartmentsToDb() {
-        apartmentRepository.addMockApartmentsToDb()
-    }
 }

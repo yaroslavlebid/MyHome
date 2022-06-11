@@ -29,7 +29,7 @@ class ApartmentListAdapter(private val apartments: MutableList<Apartment>) :
                 binding.description.text = description
                 binding.location.text =
                     "${location.city}, ${location.street}, ${location.numberOfHouse}"
-                binding.chipRating.text = "$ratingAvg / 10"
+                binding.chipRating.text = "$ratingAvg / 5"
                 binding.chipPrice.text =
                     "From ${minRoomPrice.amountOfMoney} ${minRoomPrice.currency.sign}"
                 binding.addToSaved.isChecked = isSavedInFavorite

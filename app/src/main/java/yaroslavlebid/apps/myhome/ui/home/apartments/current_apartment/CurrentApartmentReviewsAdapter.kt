@@ -33,14 +33,14 @@ class CurrentApartmentReviewsAdapter(private val reviews: List<Review>) :
                     onLikeClicked?.invoke(this.id)
                     binding.likesNum.text = (this.likes + 1).toString()
                 }
-                binding.userImage.setImageFromUrl(this.author.photoUrl)
+                binding.userImage.setImageFromUrl(this.author.photoUrl, applyCircle = true)
                 binding.userName.text = this.author.firstName
 
-                if (this.ratingAvg in (0f..1.1f)) binding.star1.setImageResource(R.drawable.grade_filled)
-                if (this.ratingAvg in (1.1f..2.1f)) binding.star1.setImageResource(R.drawable.grade_filled)
-                if (this.ratingAvg in (2.1f..3.1f)) binding.star1.setImageResource(R.drawable.grade_filled)
-                if (this.ratingAvg in (3.1f..4.1f)) binding.star1.setImageResource(R.drawable.grade_filled)
-                if (this.ratingAvg in (4.1f..5.1f)) binding.star1.setImageResource(R.drawable.grade_filled)
+                if (this.ratingAvg in (0f..5.1f)) binding.star1.setImageResource(R.drawable.grade_filled)
+                if (this.ratingAvg in (1.1f..5.1f)) binding.star2.setImageResource(R.drawable.grade_filled)
+                if (this.ratingAvg in (2.1f..5.1f)) binding.star3.setImageResource(R.drawable.grade_filled)
+                if (this.ratingAvg in (3.1f..5.1f)) binding.star4.setImageResource(R.drawable.grade_filled)
+                if (this.ratingAvg in (4.1f..5.1f)) binding.star5.setImageResource(R.drawable.grade_filled)
             }
         }
     }

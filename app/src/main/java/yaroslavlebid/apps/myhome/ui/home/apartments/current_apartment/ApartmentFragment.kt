@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.chip.Chip
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import yaroslavlebid.apps.myhome.R
+import yaroslavlebid.apps.myhome.data.apartment.ApartmentType
 import yaroslavlebid.apps.myhome.databinding.FragmentApartmentBinding
 import yaroslavlebid.apps.myhome.utils.AdvantageMapper
 
@@ -32,11 +33,13 @@ class ApartmentFragment : Fragment(R.layout.fragment_apartment) {
         binding.run {
             val apartment = apartmentFragmentArgs.apartment
             val adapter = CurrentApartmentPhotosAdapter(apartment.photos.map { it.mediumImageUrl })
-            photoRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayout.HORIZONTAL, false)
+            photoRecycler.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayout.HORIZONTAL, false)
             photoRecycler.adapter = adapter
             toolbar.title = apartment.title
             description.text = apartment.description
-            location.text = apartment.location.city
+            location.text =
+                "${apartment.location.city}, ${apartment.location.street}, ${apartment.location.numberOfHouse}"
             apartment.advantages.forEach {
                 advantagesChips.addView(createAdvantageChip(it.title))
             }
@@ -44,12 +47,33 @@ class ApartmentFragment : Fragment(R.layout.fragment_apartment) {
 
             }
             shareButton.setOnClickListener {
-
+                apartmentViewModel.loadMockApartments()
             }
             selectedDateChip.text = apartmentFragmentArgs.selectedDates
             selectedPersonsChip.text = apartmentFragmentArgs.persons
             toolbar.setNavigationOnClickListener {
                 findNavController().popBackStack()
+            }
+            if (apartment.typeOfApartment == ApartmentType.HOTEL) {
+                bookButton.text = getString(R.string.see_rooms)
+                bookButton.setOnClickListener {
+                    val action =
+                        ApartmentFragmentDirections.actionApartmentFragmentToRoomListFragment(
+                            apartment
+                        )
+                    findNavController().navigate(action)
+                }
+            } else {
+                bookButton.text = getString(R.string.book)
+                bookButton.setOnClickListener {
+                    val action = ApartmentFragmentDirections.actionApartmentFragmentToOrderFragment(
+                        apartment = apartment,
+                        isRoom = false,
+                        selectedDate = apartmentFragmentArgs.selectedDates,
+                        selectedPersons = apartmentFragmentArgs.persons
+                    )
+                    findNavController().navigate(action)
+                }
             }
         }
     }
@@ -69,7 +93,8 @@ class ApartmentFragment : Fragment(R.layout.fragment_apartment) {
 
                 }
             }
-            binding.reviewsRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayout.HORIZONTAL, false)
+            binding.reviewsRecycler.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayout.HORIZONTAL, false)
             binding.reviewsRecycler.adapter = adapter
         }
     }

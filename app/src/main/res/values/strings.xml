@@ -110,4 +110,5 @@
     <string name="select_image">Select image</string>
     <string name="search_hint">Search</string>
     <string name="where_are_you_going_hint">Where are you going?</string>
+    <string name="see_rooms">See rooms</string>
 </resources>

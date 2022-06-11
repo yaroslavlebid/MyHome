@@ -54,4 +54,9 @@ class ApartmentViewModel(
             Timber.e(it, "Can't load apartment")
         }
     }
+
+    // fixme: for test
+    fun loadMockApartments() {
+        apartmentRepository.addMockApartmentsToDb()
+    }
 }

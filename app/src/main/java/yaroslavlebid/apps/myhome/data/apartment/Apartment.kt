@@ -20,7 +20,8 @@ data class Apartment(
     val advantages: List<ApartmentAdvantage> = listOf(),
     val ratingAvg: Float = 0f,
     val publicationTimestamp: Long = 0L,
-    val minRoomPrice: Price = Price()
+    val minRoomPrice: Price = Price(),
+    val beds: List<Bed> = emptyList()
     //val reviews: List<Review> = listOf(), --> saved in firebase doc, as collection
     //val rooms: List<Room> --> saved in firebase doc, as collection
 ) : Parcelable {
@@ -31,4 +32,13 @@ data class Apartment(
             reviews.forEach { sum += it.ratingAvg }
             return sum/reviews.size
         }*/
+    val peopleCapacity: Int
+        get() {
+            var sum = 0
+            beds.forEach { when (it.type) {
+                TypeOfBed.SINGLE -> sum += 1
+                TypeOfBed.DOUBLE, TypeOfBed.BUNK -> sum +=2 }
+            }
+            return sum
+        }
 }

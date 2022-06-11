@@ -21,7 +21,7 @@
             <ImageView
                 android:id="@+id/photo"
                 android:layout_width="match_parent"
-                android:layout_height="194dp"
+                android:layout_height="220dp"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/aparment_placeholder" />
 
@@ -75,7 +75,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:maxLines="4"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="Content description"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
