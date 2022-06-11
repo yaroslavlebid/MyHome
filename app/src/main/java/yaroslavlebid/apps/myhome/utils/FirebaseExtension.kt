@@ -5,6 +5,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 import timber.log.Timber
 import yaroslavlebid.apps.myhome.data.User
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
+import yaroslavlebid.apps.myhome.data.apartment.Room
 import yaroslavlebid.apps.myhome.data.review.Review
 import yaroslavlebid.apps.myhome.exceptions.DocumentParseException
 
@@ -13,6 +14,8 @@ fun DocumentSnapshot.toUser() = this.toObject(User::class.java)
 fun DocumentSnapshot.toApartment() = this.toObject(Apartment::class.java) ?: throw DocumentParseException("$this")
 
 fun DocumentSnapshot.toReview() = this.toObject(Review::class.java) ?: throw DocumentParseException("$this")
+
+fun DocumentSnapshot.toRoom() = this.toObject(Room::class.java) ?: throw DocumentParseException("$this")
 
 fun handleParseError(errorLiveData: MutableLiveData<Exception>, block: () -> Unit) {
     try {

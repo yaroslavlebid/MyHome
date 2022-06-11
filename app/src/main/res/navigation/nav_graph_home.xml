@@ -116,6 +116,12 @@
         <argument
             android:name="apartment"
             app:argType="yaroslavlebid.apps.myhome.data.apartment.Apartment" />
+        <argument
+            android:name="people"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/orderFragment"

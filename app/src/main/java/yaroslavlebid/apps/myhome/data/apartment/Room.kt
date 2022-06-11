@@ -6,9 +6,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Room(
-    val name: String,
-    val beds: List<Bed>,
-    val photo: Photo,
+    val name: String = "",
+    val beds: List<Bed> = emptyList(),
+    val photo: Photo = Photo(),
     val price: Price = Price(),
     val bookedDates: List<String> = listOf()
 ) : Parcelable {

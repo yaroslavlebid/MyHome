@@ -18,6 +18,7 @@ import yaroslavlebid.apps.myhome.data.apartment.Room
 import yaroslavlebid.apps.myhome.data.apartment.TypeOfBed
 import yaroslavlebid.apps.myhome.data.review.Rating
 import yaroslavlebid.apps.myhome.data.review.Review
+import yaroslavlebid.apps.myhome.repository.firestore.COLLECTIONS_ROOMS
 import yaroslavlebid.apps.myhome.repository.firestore.COLLECTION_APARTMENTS
 import yaroslavlebid.apps.myhome.repository.firestore.COLLECTION_REVIEWS
 
@@ -29,16 +30,23 @@ interface ApartmentRepository {
     fun addApartmentToDb(apartment: Apartment): Task<Void>
 
     fun addMockApartmentsToDb()
+
+    fun getRoomList(apartmentId: String): Task<QuerySnapshot>
 }
 
 class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepository {
     override fun getApartmentList() = db.collection(COLLECTION_APARTMENTS).get()
 
-    override fun addApartmentToDb(apartment: Apartment) = db.collection(COLLECTION_APARTMENTS).document(apartment.id).set(apartment)
+    override fun addApartmentToDb(apartment: Apartment) =
+        db.collection(COLLECTION_APARTMENTS).document(apartment.id).set(apartment)
 
-    override fun getApartmentById(id: String): Task<DocumentSnapshot> = db.collection(COLLECTION_APARTMENTS).document(id).get()
+    override fun getApartmentById(id: String): Task<DocumentSnapshot> =
+        db.collection(COLLECTION_APARTMENTS).document(id).get()
 
-
+    override fun getRoomList(apartmentId: String): Task<QuerySnapshot> =
+        db.collection(COLLECTION_APARTMENTS).document(apartmentId).collection(
+            COLLECTIONS_ROOMS
+        ).get()
 
 
     //fixme: for test
@@ -50,23 +58,31 @@ class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepo
 
         val reviews = getMockReviews()
         db.collection(COLLECTION_APARTMENTS).document().collection(
-            COLLECTION_REVIEWS).add(reviews[0])
+            COLLECTION_REVIEWS
+        ).add(reviews[0])
         db.collection(COLLECTION_APARTMENTS).document(apartments[0].id).collection(
-            COLLECTION_REVIEWS).add(reviews[1])
+            COLLECTION_REVIEWS
+        ).add(reviews[1])
 
         db.collection(COLLECTION_APARTMENTS).document(apartments[1].id).collection(
-            COLLECTION_REVIEWS).add(reviews[0])
+            COLLECTION_REVIEWS
+        ).add(reviews[0])
         db.collection(COLLECTION_APARTMENTS).document(apartments[1].id).collection(
-            COLLECTION_REVIEWS).add(reviews[1])
+            COLLECTION_REVIEWS
+        ).add(reviews[1])
 
         db.collection(COLLECTION_APARTMENTS).document(apartments[2].id).collection(
-            COLLECTION_REVIEWS).add(reviews[0])
+            COLLECTION_REVIEWS
+        ).add(reviews[0])
         db.collection(COLLECTION_APARTMENTS).document(apartments[2].id).collection(
-            COLLECTION_REVIEWS).add(reviews[1])
+            COLLECTION_REVIEWS
+        ).add(reviews[1])
 
         val rooms = getMockRooms()
-        db.collection(COLLECTION_APARTMENTS).document(apartments[1].id).collection("rooms").add(rooms[0])
-        db.collection(COLLECTION_APARTMENTS).document(apartments[1].id).collection("rooms").add(rooms[1])
+        db.collection(COLLECTION_APARTMENTS).document(apartments[1].id).collection(COLLECTIONS_ROOMS)
+            .add(rooms[0])
+        db.collection(COLLECTION_APARTMENTS).document(apartments[1].id).collection(COLLECTIONS_ROOMS)
+            .add(rooms[1])
     }
 
     private fun getMockApartments(): List<Apartment> {
@@ -75,15 +91,30 @@ class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepo
             title = "Apartment in Lviv",
             description = "Beautiful, cozy, studio apartment. Stylish renovation. All appliances. The apartment can accommodate two people. The apartment is located in the historic center of Lviv, to the Opera House 10-12 minutes walk, near the shopping center 'Forum'",
             photos = listOf(
-                    Photo(mediumImageUrl = "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-38170315-unapproved/original/aecfa72b-6f7c-4a0d-8ab6-a5f3d3a1f26d.JPEG?im_w=1200"),
-                    Photo(mediumImageUrl = "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-38170315-unapproved/original/e9043bc3-51b3-4791-b20a-efeca0dabb6e.JPEG?im_w=1440"),
-                    Photo(mediumImageUrl = "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-38170315-unapproved/original/8d485a49-0ef3-4737-bd42-579a7a481505.JPEG?im_w=1440")
+                Photo(mediumImageUrl = "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-38170315-unapproved/original/aecfa72b-6f7c-4a0d-8ab6-a5f3d3a1f26d.JPEG?im_w=1200"),
+                Photo(mediumImageUrl = "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-38170315-unapproved/original/e9043bc3-51b3-4791-b20a-efeca0dabb6e.JPEG?im_w=1440"),
+                Photo(mediumImageUrl = "https://a0.muscache.com/im/pictures/pro_photo_tool/Hosting-38170315-unapproved/original/8d485a49-0ef3-4737-bd42-579a7a481505.JPEG?im_w=1440")
             ),
             coverPhotoId = 0,
-            location = ApartmentLocation(country = "Ukraine", city = "Lviv", street = "Chornovola st.", "42A", longitude = 49.852005729072104, latitude = 24.016833504604524),
-            author = User(firstName = "Olga", photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/makeup.jpg"),
+            location = ApartmentLocation(
+                country = "Ukraine",
+                city = "Lviv",
+                street = "Chornovola st.",
+                "42A",
+                longitude = 49.852005729072104,
+                latitude = 24.016833504604524
+            ),
+            author = User(
+                firstName = "Olga",
+                photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/makeup.jpg"
+            ),
             typeOfApartment = ApartmentType.FLAT,
-            advantages = listOf(ApartmentAdvantage("Free Wi-Fi"), ApartmentAdvantage("Free parking"), ApartmentAdvantage("Service"), ApartmentAdvantage("Pets allowed")),
+            advantages = listOf(
+                ApartmentAdvantage("Free Wi-Fi"),
+                ApartmentAdvantage("Free parking"),
+                ApartmentAdvantage("Service"),
+                ApartmentAdvantage("Pets allowed")
+            ),
             ratingAvg = 4.3f,
             publicationTimestamp = 0L,
             minRoomPrice = Price(Currency.USD, 23)
@@ -99,10 +130,27 @@ class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepo
                 Photo(mediumImageUrl = "https://t-cf.bstatic.com/xdata/images/hotel/max1280x900/240410330.jpg?k=b172352faae5203a8c86bd2ae6746049c210b91cfa9cde44b59dd92e9cf83207&o=&hp=1")
             ),
             coverPhotoId = 0,
-            location = ApartmentLocation(country = "Ukraine", city = "Lviv", street = "Prospect Svoboty", "13", longitude = 49.84086086686511, latitude = 24.027353998145102),
-            author = User(firstName = "Andriy", photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/sex.jpg"),
+            location = ApartmentLocation(
+                country = "Ukraine",
+                city = "Lviv",
+                street = "Prospect Svoboty",
+                "13",
+                longitude = 49.84086086686511,
+                latitude = 24.027353998145102
+            ),
+            author = User(
+                firstName = "Andriy",
+                photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/sex.jpg"
+            ),
             typeOfApartment = ApartmentType.HOTEL,
-            advantages = listOf(ApartmentAdvantage("Free Wi-Fi"), ApartmentAdvantage("Free parking"), ApartmentAdvantage("Service"), ApartmentAdvantage("Bar"), ApartmentAdvantage("Restaurant"), ApartmentAdvantage("Breakfest")),
+            advantages = listOf(
+                ApartmentAdvantage("Free Wi-Fi"),
+                ApartmentAdvantage("Free parking"),
+                ApartmentAdvantage("Service"),
+                ApartmentAdvantage("Bar"),
+                ApartmentAdvantage("Restaurant"),
+                ApartmentAdvantage("Breakfest")
+            ),
             ratingAvg = 4.9f,
             publicationTimestamp = 0L,
             minRoomPrice = Price(Currency.USD, 150)
@@ -118,10 +166,25 @@ class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepo
                 Photo(mediumImageUrl = "https://a0.muscache.com/im/pictures/44781814/00299502_original.jpg?im_w=1440")
             ),
             coverPhotoId = 0,
-            location = ApartmentLocation(country = "Ukraine", city = "Lviv", street = "Plosha Rynok", "12", longitude = 49.84149742575578, latitude = 24.03254675474058),
-            author = User(firstName = "Olena", photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/emotion.jpg"),
+            location = ApartmentLocation(
+                country = "Ukraine",
+                city = "Lviv",
+                street = "Plosha Rynok",
+                "12",
+                longitude = 49.84149742575578,
+                latitude = 24.03254675474058
+            ),
+            author = User(
+                firstName = "Olena",
+                photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/emotion.jpg"
+            ),
             typeOfApartment = ApartmentType.HOTEL,
-            advantages = listOf(ApartmentAdvantage("Free Wi-Fi"), ApartmentAdvantage("Free parking"), ApartmentAdvantage("Service"), ApartmentAdvantage("Breakfest")),
+            advantages = listOf(
+                ApartmentAdvantage("Free Wi-Fi"),
+                ApartmentAdvantage("Free parking"),
+                ApartmentAdvantage("Service"),
+                ApartmentAdvantage("Breakfest")
+            ),
             ratingAvg = 3.9f,
             publicationTimestamp = 0L,
             minRoomPrice = Price(Currency.USD, 40)
@@ -133,14 +196,20 @@ class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepo
     private fun getMockReviews(): List<Review> {
         val review1 = Review(
             id = "1",
-            author = User(firstName = "Olena", photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/emotion.jpg"),
+            author = User(
+                firstName = "Olena",
+                photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/emotion.jpg"
+            ),
             comment = "I recommend! Everything was great!",
             rating = listOf(Rating(rating = 5)),
             likes = 119
         )
         val review2 = Review(
             id = "1",
-            author = User(firstName = "Andriy", photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/sex.jpg"),
+            author = User(
+                firstName = "Andriy",
+                photoUrl = "https://static.generated.photos/vue-static/face-generator/landing/demo-previews/sex.jpg"
+            ),
             comment = "Thank you! Everything was great!",
             rating = listOf(Rating(rating = 4)),
             likes = 119

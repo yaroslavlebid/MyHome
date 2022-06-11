@@ -37,8 +37,6 @@ u
 Eapp/src/main/java/yaroslavlebid/apps/myhome/ui/login/LoginActivity.kt,7\d\7dae53e67a76936ce9b37740943a98969adc1d87
 h
 8app/src/main/java/yaroslavlebid/apps/myhome/MyHomeApp.kt,0\5\05a5b0d2ecd5619800befff4630c7b32e1f77e4c
-s
-Capp/src/main/java/yaroslavlebid/apps/myhome/data/apartment/Price.kt,f\5\f56711580da45a78b6a18394a6c5615493b41d6b
 |
 Lapp/src/main/java/yaroslavlebid/apps/myhome/data/session/SessionContainer.kt,8\8\88dce4060cdc0c6afb3e6f406c8c212b426780d1
 h

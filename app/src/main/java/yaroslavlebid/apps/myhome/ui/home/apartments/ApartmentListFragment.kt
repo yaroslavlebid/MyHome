@@ -6,6 +6,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointForward
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.lapism.search.widget.MaterialSearchView
 import com.lapism.search.widget.NavigationIconCompat
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -13,6 +16,7 @@ import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
 import yaroslavlebid.apps.myhome.databinding.FragmentApartmentListBinding
 import yaroslavlebid.apps.myhome.ui.home.apartments.adapter.ApartmentListAdapter
+import yaroslavlebid.apps.myhome.utils.toSelectedDate
 
 class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
 
@@ -34,7 +38,11 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
         binding.run {
             val adapter = ApartmentListAdapter(apartmentList).apply {
                 onItemClickListener = {
-                    val action = ApartmentListFragmentDirections.actionSearchToApartmentFragment(it, "0", "0")
+                    val action = ApartmentListFragmentDirections.actionSearchToApartmentFragment(
+                        it,
+                        searchHelper.guestsButton.text.toString(),
+                        searchHelper.calendarButton.text.toString()
+                    )
                     findNavController().navigate(action)
                 }
                 bookmarkClickListener = {
@@ -102,6 +110,13 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
                     }
                 })
             }
+
+            searchHelper.calendarButton.setOnClickListener {
+                pickDate().addOnPositiveButtonClickListener {
+                    val dateRange = "${it.first.toSelectedDate()} - ${it.second.toSelectedDate()}"
+                    searchHelper.calendarButton.text = dateRange
+                }
+            }
         }
     }
 
@@ -122,6 +137,29 @@ class ApartmentListFragment : Fragment(R.layout.fragment_apartment_list) {
         val params = this.layoutParams as ConstraintLayout.LayoutParams
         params.topToBottom = viewId
         this.requestLayout()
+    }
+
+    private fun pickDate(): MaterialDatePicker<androidx.core.util.Pair<Long, Long>> {
+
+        val constraintsBuilder =
+            CalendarConstraints.Builder()
+                .setValidator(DateValidatorPointForward.now()).build()
+
+        val dateRangePicker =
+            MaterialDatePicker.Builder.dateRangePicker()
+                .setTitleText("Select dates")
+                .setSelection(
+                    androidx.core.util.Pair(
+                        MaterialDatePicker.todayInUtcMilliseconds(),
+                        (MaterialDatePicker.todayInUtcMilliseconds() + 86_400_000)
+                    )
+                )
+                .setCalendarConstraints(constraintsBuilder)
+                .build()
+
+        dateRangePicker.show(childFragmentManager, "date_range")
+
+        return dateRangePicker
     }
 
 }

@@ -1,5 +1,6 @@
 package yaroslavlebid.apps.myhome.utils
 
+import java.text.SimpleDateFormat
 import timber.log.Timber
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -16,4 +17,9 @@ fun stringToDate(stringDate: String): LocalDate {
         Timber.e("Fail when trying to parse date of birth", e)
     }
     return LocalDate.of(1970, 1, 1)
+}
+
+fun Long.toSelectedDate() : String {
+    val simpleDateFormat = SimpleDateFormat("EEE dd.MM", Locale.getDefault())
+    return simpleDateFormat.format(this)
 }

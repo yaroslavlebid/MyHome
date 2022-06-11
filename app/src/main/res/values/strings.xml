@@ -102,7 +102,7 @@
     <string name="book">Book</string>
     <string name="set_up_your_profile_text">Set up your profile</string>
     <string name="chip_people">1 adult - 1 child</string>
-    <string name="date_chip">Tue 17.05 - Fri 20.05</string>
+    <string name="date_chip">Any date</string>
     <string name="invalid_email">Invalid email</string>
     <string name="password_error">Password length must be 6+ symb from English alphabet</string>
     <string name="something_went_wrong">Something went wrong, try again later...</string>

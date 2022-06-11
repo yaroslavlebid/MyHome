@@ -59,7 +59,9 @@ class ApartmentFragment : Fragment(R.layout.fragment_apartment) {
                 bookButton.setOnClickListener {
                     val action =
                         ApartmentFragmentDirections.actionApartmentFragmentToRoomListFragment(
-                            apartment
+                            apartment,
+                            date = apartmentFragmentArgs.selectedDates,
+                            people = apartmentFragmentArgs.persons
                         )
                     findNavController().navigate(action)
                 }

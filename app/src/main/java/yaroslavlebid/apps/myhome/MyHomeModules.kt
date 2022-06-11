@@ -24,6 +24,7 @@ import yaroslavlebid.apps.myhome.repository.UserRepositoryImpl
 import yaroslavlebid.apps.myhome.ui.edit_profile.ProfileViewModel
 import yaroslavlebid.apps.myhome.ui.home.apartments.ApartmentListViewModel
 import yaroslavlebid.apps.myhome.ui.home.apartments.current_apartment.ApartmentViewModel
+import yaroslavlebid.apps.myhome.ui.home.apartments.current_apartment.room.RoomListViewModel
 import yaroslavlebid.apps.myhome.ui.home.my_profile.MyProfileViewModel
 import yaroslavlebid.apps.myhome.ui.home.my_profile.add_apartment.AddApartmentViewModel
 import yaroslavlebid.apps.myhome.ui.home.saved_apartments.SavedApartmentsViewModel
@@ -39,6 +40,7 @@ val viewModelModule = module {
     viewModel { SavedApartmentsViewModel(get()) }
     viewModel { ApartmentViewModel(get(), get()) }
     viewModel { AddApartmentViewModel(get(), get()) }
+    viewModel { RoomListViewModel(get()) }
 }
 
 val repositoryModule = module {
