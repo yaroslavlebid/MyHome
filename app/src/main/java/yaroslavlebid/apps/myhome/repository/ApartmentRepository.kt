@@ -117,7 +117,8 @@ class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepo
             ),
             ratingAvg = 4.3f,
             publicationTimestamp = 0L,
-            minRoomPrice = Price(Currency.USD, 23)
+            minRoomPrice = Price(Currency.USD, 23),
+            listOf(Bed(type = TypeOfBed.DOUBLE))
         )
 
         val apartment2 = Apartment(
@@ -153,7 +154,7 @@ class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepo
             ),
             ratingAvg = 4.9f,
             publicationTimestamp = 0L,
-            minRoomPrice = Price(Currency.USD, 150)
+            minRoomPrice = Price(Currency.USD, 150),
         )
 
         val apartment3 = Apartment(
@@ -187,7 +188,8 @@ class ApartmentRepositoryImpl(private val db: FirebaseFirestore) : ApartmentRepo
             ),
             ratingAvg = 3.9f,
             publicationTimestamp = 0L,
-            minRoomPrice = Price(Currency.USD, 40)
+            minRoomPrice = Price(Currency.USD, 40),
+            listOf(Bed(type = TypeOfBed.DOUBLE))
         )
 
         return listOf(apartment1, apartment2, apartment3)

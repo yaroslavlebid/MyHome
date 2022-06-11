@@ -44,7 +44,8 @@ class ApartmentFragment : Fragment(R.layout.fragment_apartment) {
                 advantagesChips.addView(createAdvantageChip(it.title))
             }
             mapButton.setOnClickListener {
-
+                val action = ApartmentFragmentDirections.actionApartmentFragmentToMap(arrayOf(apartment.location))
+                findNavController().navigate(action)
             }
             shareButton.setOnClickListener {
                 apartmentViewModel.loadMockApartments()

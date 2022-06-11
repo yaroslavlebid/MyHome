@@ -26,18 +26,6 @@ class HomeActivity : AppCompatActivity() {
 
         val navController = Navigation.findNavController(this, R.id.fragment_container)
         //NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
-        navController.addOnDestinationChangedListener { it, destination, _ ->
-            if (destination.id != R.id.search
-                && destination.id != R.id.map && destination.id != R.id.favorite
-                && destination.id != R.id.profile && it.currentDestination?.id == R.id.search
-                && it.currentDestination?.id == R.id.map && it.currentDestination?.id == R.id.favorite
-                && it.currentDestination?.id == R.id.profile
-            ) {
-                binding.bottomNavigation.visibility = View.GONE
-            } else {
-                binding.bottomNavigation.visibility = View.VISIBLE
-            }
-        }
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             if (item.itemId == R.id.map) {
                 val bundle = Bundle().apply {
@@ -46,6 +34,19 @@ class HomeActivity : AppCompatActivity() {
                 navController.navigate(item.itemId, bundle)
             } else navController.navigate(item.itemId)
             true
+        }
+
+        navController.addOnDestinationChangedListener { it, destination, _ ->
+            if (destination.id != R.id.search
+                && destination.id != R.id.map && destination.id != R.id.favorite
+                && destination.id != R.id.profile && (it.currentDestination?.id == R.id.search
+                || it.currentDestination?.id == R.id.map || it.currentDestination?.id == R.id.favorite
+                || it.currentDestination?.id == R.id.profile)
+            ) {
+                binding.bottomNavigation.visibility = View.GONE
+            } else {
+                binding.bottomNavigation.visibility = View.VISIBLE
+            }
         }
 
         binding.bottomNavigation.selectedItemId = R.id.search
