@@ -25,10 +25,8 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assembleDebug
 
-      - name: Write txt file
-        run: mkdir -p path/to/artifact
-        run: echo hello > path/to/artifact/world.txt
-      - uses: actions/upload-artifact@v3
-          with:
-            name: my-artifact
-            path: path/to/artifact/world.txt
+      - name: Upload Debug APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
