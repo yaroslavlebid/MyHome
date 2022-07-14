@@ -22,12 +22,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
-        run: ./gradlew assembleRelease
-      - name: Upload Release APK
-        - uses: actions/upload-artifact@v3
-          with:
-            name: app-release.apk
-            path: app/build/outputs/apk/release/app-release-unsigned.apk
+        run: ./gradlew assembleDebug
 
       - name: Upload Debug APK
       - uses: actions/upload-artifact@v3
