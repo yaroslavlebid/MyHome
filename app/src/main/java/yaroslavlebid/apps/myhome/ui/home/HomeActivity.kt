@@ -39,9 +39,7 @@ class HomeActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { it, destination, _ ->
             if (destination.id != R.id.search
                 && destination.id != R.id.map && destination.id != R.id.favorite
-                && destination.id != R.id.profile && (it.currentDestination?.id == R.id.search
-                || it.currentDestination?.id == R.id.map || it.currentDestination?.id == R.id.favorite
-                || it.currentDestination?.id == R.id.profile)
+                && destination.id != R.id.profile
             ) {
                 binding.bottomNavigation.visibility = View.GONE
             } else {

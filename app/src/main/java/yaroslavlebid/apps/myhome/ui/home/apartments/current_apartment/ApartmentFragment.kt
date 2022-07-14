@@ -91,6 +91,16 @@ class ApartmentFragment : Fragment(R.layout.fragment_apartment) {
 
     fun initObservers(binding: FragmentApartmentBinding) {
         apartmentViewModel.reviews.observe(viewLifecycleOwner) {
+            if (it.isEmpty()) {
+                binding.divider2.visibility = View.GONE
+                binding.reviewsLabel.visibility = View.GONE
+                binding.reviewsLayout.visibility = View.GONE
+            } else
+            {
+                binding.divider2.visibility = View.VISIBLE
+                binding.reviewsLabel.visibility = View.VISIBLE
+                binding.reviewsLayout.visibility = View.VISIBLE
+            }
             val adapter = CurrentApartmentReviewsAdapter(it).apply {
                 onLikeClicked = {
 

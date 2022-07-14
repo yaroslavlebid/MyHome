@@ -1,13 +1,15 @@
 package yaroslavlebid.apps.myhome.ui.home.apartments.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import yaroslavlebid.apps.myhome.R
 import yaroslavlebid.apps.myhome.data.apartment.Apartment
 import yaroslavlebid.apps.myhome.databinding.ItemApartmentBinding
 import yaroslavlebid.apps.myhome.utils.setImageFromUrl
 
-class ApartmentListAdapter(private val apartments: MutableList<Apartment>) :
+class ApartmentListAdapter(private val context: Context, private val apartments: MutableList<Apartment>) :
     RecyclerView.Adapter<ApartmentListAdapter.ApartmentsViewHolder>() {
 
     var onItemClickListener: ((Apartment) -> Unit)? = null
@@ -30,8 +32,7 @@ class ApartmentListAdapter(private val apartments: MutableList<Apartment>) :
                 binding.location.text =
                     "${location.city}, ${location.street}, ${location.numberOfHouse}"
                 binding.chipRating.text = "$ratingAvg / 5"
-                binding.chipPrice.text =
-                    "From ${minRoomPrice.amountOfMoney} ${minRoomPrice.currency.sign}"
+                binding.chipPrice.text = String.format(context.getString(R.string.price_from), minRoomPrice.amountOfMoney, minRoomPrice.currency.sign)
                 binding.addToSaved.isChecked = isSavedInFavorite
 
                 binding.root.setOnClickListener { onItemClickListener?.invoke(this) }

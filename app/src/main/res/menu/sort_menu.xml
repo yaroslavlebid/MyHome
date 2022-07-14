@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/sort_by_rating"
+        android:icon="@drawable/grade"
+        android:iconTintMode="src_in"
+        android:title="@string/rating_param" />
+    <item
+        android:id="@+id/sort_by_price"
+        android:icon="@drawable/paid"
+        android:iconTintMode="src_in"
+        android:title="@string/price_param" />
+</menu>

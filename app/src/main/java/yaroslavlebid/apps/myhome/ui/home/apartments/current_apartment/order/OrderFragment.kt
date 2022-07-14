@@ -65,13 +65,17 @@ class OrderFragment : Fragment(R.layout.fragment_order) {
                 if (single == 0) itemRoom.singleBedChip.visibility = View.GONE else itemRoom.singleBedChip.text = single.toString()
                 if (double == 0) itemRoom.doubleBedChip.visibility = View.GONE else itemRoom.doubleBedChip.text = double.toString()
                 if (bunks == 0) itemRoom.bunkBedChip.visibility = View.GONE else itemRoom.bunkBedChip.text = bunks.toString()
-                val days = 1
+                val days = 2
                 val price = apartment.minRoomPrice.amountOfMoney*days
                 totalPriceText.text = "${price} ${apartment.minRoomPrice.currency}"
             }
 
             binding.selectedDateChip.text = orderFragmentArgs.selectedDate
             binding.selectedPersonsChip.text = orderFragmentArgs.selectedPersons
+
+            binding.firstName.editText?.setText("Ярослав")
+            binding.lastName.editText?.setText("Лебідь")
+            binding.phoneNumber.editText?.setText("0673901661")
 
 
             goToPayment.setOnClickListener {

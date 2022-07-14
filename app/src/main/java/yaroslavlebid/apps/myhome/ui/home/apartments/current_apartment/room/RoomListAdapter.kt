@@ -40,7 +40,7 @@ class RoomListAdapter(private val rooms: List<Room>) :
                 if (single == 0) binding.singleBedChip.visibility = View.GONE else binding.singleBedChip.text = single.toString()
                 if (double == 0) binding.doubleBedChip.visibility = View.GONE else binding.doubleBedChip.text = double.toString()
                 if (bunks == 0) binding.bunkBedChip.visibility = View.GONE else binding.bunkBedChip.text = bunks.toString()
-                binding.price.text = "${price.amountOfMoney} ${price.currency}/per day"
+                binding.price.text = "${price.amountOfMoney} ${price.currency}/в день"
                 binding.bookButton.setOnClickListener {
                     onBookClickListener?.invoke(this)
                 }

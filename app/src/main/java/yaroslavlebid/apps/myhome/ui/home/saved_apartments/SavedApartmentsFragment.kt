@@ -29,7 +29,7 @@ class SavedApartmentsFragment : Fragment(R.layout.fragment_saved_apartments) {
 
     private fun initViews(binding: FragmentSavedApartmentsBinding) {
         binding.run {
-            val adapter = ApartmentListAdapter(apartmentList).apply {
+            val adapter = ApartmentListAdapter(requireContext(), apartmentList).apply {
                 onItemClickListener = {
                     val action =
                         SavedApartmentsFragmentDirections.actionFavoriteToApartmentFragment(it, "0", "0")
