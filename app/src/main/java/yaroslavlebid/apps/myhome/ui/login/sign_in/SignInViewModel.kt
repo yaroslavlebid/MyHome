@@ -5,9 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import timber.log.Timber
 import yaroslavlebid.apps.myhome.repository.AuthRepository
-import yaroslavlebid.apps.myhome.repository.UserRepository
 import yaroslavlebid.apps.myhome.ui.helpers.Event
-import yaroslavlebid.apps.myhome.ui.login.sign_up.RegistrationStatus
 
 class SignInViewModel(
     private val authRepository: AuthRepository

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/adults_label"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/count_of_adults"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/minusButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="50dp"
+        android:src="@drawable/minus_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/adults_label"
+        app:layout_constraintStart_toEndOf="@+id/adults_label"
+        app:layout_constraintTop_toTopOf="@+id/adults_label" />
+
+    <TextView
+        android:id="@+id/adults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/minusButton"
+        app:layout_constraintStart_toEndOf="@+id/minusButton"
+        app:layout_constraintTop_toTopOf="@+id/minusButton" />
+
+    <ImageView
+        android:id="@+id/addButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/add_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/adults"
+        app:layout_constraintStart_toEndOf="@+id/adults"
+        app:layout_constraintTop_toTopOf="@+id/adults" />
+
+    <TextView
+        android:id="@+id/children_label"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/count_of_children"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/minusButton" />
+
+    <ImageView
+        android:id="@+id/minusButton2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="50dp"
+        android:src="@drawable/minus_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/children_label"
+        app:layout_constraintStart_toEndOf="@+id/children_label"
+        app:layout_constraintTop_toTopOf="@+id/children_label" />
+
+    <TextView
+        android:id="@+id/children"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/minusButton2"
+        app:layout_constraintStart_toEndOf="@+id/minusButton2"
+        app:layout_constraintTop_toTopOf="@+id/minusButton2" />
+
+    <ImageView
+        android:id="@+id/addButton2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/add_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/children"
+        app:layout_constraintStart_toEndOf="@+id/children"
+        app:layout_constraintTop_toTopOf="@+id/children" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/addButton2"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/save"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,9 @@
 package yaroslavlebid.apps.myhome.data
 
-import com.google.firebase.firestore.DocumentId
-import java.util.*
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class User(
     val id: String = "",
     var firstName: String = "",
@@ -11,7 +12,7 @@ data class User(
     var email: String = "",
     var photoUrl: String = "",
     val registrationTimestamp: Long = 0L
-) {
+) : Parcelable {
     fun isProfileOnlyWithEmail() =
         if (firstName.isEmpty() && lastName.isEmpty() && phoneNumber.isEmpty() && photoUrl.isEmpty()) {
             true

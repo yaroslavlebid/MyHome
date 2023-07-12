@@ -12,15 +12,18 @@
         <action
             android:id="@+id/action_search_to_apartmentFragment"
             app:destination="@id/apartmentFragment" />
+        <action
+            android:id="@+id/action_search_to_map"
+            app:destination="@id/map" />
     </fragment>
-    <fragment
-        android:id="@+id/calendar"
-        android:name="yaroslavlebid.apps.myhome.ui.home.calendar.CalendarFragment"
-        android:label="CalendarFragment" />
     <fragment
         android:id="@+id/map"
         android:name="yaroslavlebid.apps.myhome.ui.home.map.MapFragment"
-        android:label="MapFragment" />
+        android:label="MapFragment" >
+        <argument
+            android:name="markers"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.ApartmentLocation[]" />
+    </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.MyProfileFragment"
@@ -62,11 +65,23 @@
     <fragment
         android:id="@+id/editProfileFragment2"
         android:name="yaroslavlebid.apps.myhome.ui.edit_profile.EditProfileFragment"
-        android:label="EditProfileFragment" />
+        android:label="EditProfileFragment" >
+        <argument
+            android:name="isItFirstSetup"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
     <fragment
         android:id="@+id/favorite"
         android:name="yaroslavlebid.apps.myhome.ui.home.saved_apartments.SavedApartmentsFragment"
-        android:label="SavedApartmentsFragment" />
+        android:label="SavedApartmentsFragment" >
+        <action
+            android:id="@+id/action_favorite_to_apartmentFragment"
+            app:destination="@id/apartmentFragment" />
+        <action
+            android:id="@+id/action_favorite_to_map"
+            app:destination="@id/map" />
+    </fragment>
     <activity
         android:id="@+id/loginActivity"
         android:name="yaroslavlebid.apps.myhome.ui.login.LoginActivity"
@@ -82,6 +97,18 @@
         <action
             android:id="@+id/action_apartmentFragment_to_roomListFragment"
             app:destination="@id/roomListFragment" />
+        <argument
+            android:name="apartment"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.Apartment" />
+        <argument
+            android:name="persons"
+            app:argType="string" />
+        <argument
+            android:name="selectedDates"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_apartmentFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
     </fragment>
     <fragment
         android:id="@+id/roomListFragment"
@@ -90,6 +117,15 @@
         <action
             android:id="@+id/action_roomListFragment_to_orderFragment"
             app:destination="@id/orderFragment" />
+        <argument
+            android:name="apartment"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.Apartment" />
+        <argument
+            android:name="people"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/orderFragment"
@@ -98,6 +134,21 @@
         <action
             android:id="@+id/action_orderFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />
+        <argument
+            android:name="apartment"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.Apartment" />
+        <argument
+            android:name="room"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.Room"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="selectedDate"
+            app:argType="string" />
+        <argument android:name="selectedPersons" />
+        <argument
+            android:name="isRoom"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
@@ -122,6 +173,9 @@
         <action
             android:id="@+id/action_addApartmentFragment_to_addApartmentLastStepFragment"
             app:destination="@id/addApartmentLastStepFragment" />
+        <action
+            android:id="@+id/action_addApartmentFragment_to_addedApartmentsFragment"
+            app:destination="@id/addedApartmentsFragment" />
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
@@ -146,7 +200,11 @@
     <fragment
         android:id="@+id/addedApartmentsFragment"
         android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.added_apartments.AddedApartmentsFragment"
-        android:label="AddedApartmentsFragment" />
+        android:label="AddedApartmentsFragment" >
+        <action
+            android:id="@+id/action_addedApartmentsFragment_to_profile"
+            app:destination="@id/profile" />
+    </fragment>
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="yaroslavlebid.apps.myhome.ui.home.my_profile.notifications.NotificationsFragment"
@@ -161,6 +219,9 @@
         <action
             android:id="@+id/action_addApartmentLastStepFragment_to_addedApartmentsFragment"
             app:destination="@id/addedApartmentsFragment" />
+        <argument
+            android:name="apartment"
+            app:argType="yaroslavlebid.apps.myhome.data.apartment.Apartment" />
     </fragment>
     <fragment
         android:id="@+id/addRoomFragment"

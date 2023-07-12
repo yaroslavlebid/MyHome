@@ -9,6 +9,7 @@ import yaroslavlebid.apps.myhome.repository.AuthRepository
 import yaroslavlebid.apps.myhome.repository.StorageRepository
 import yaroslavlebid.apps.myhome.repository.UserRepository
 import java.io.File
+import yaroslavlebid.apps.myhome.utils.toUser
 
 class ProfileViewModel(
     private val authRepository: AuthRepository,
@@ -19,8 +20,11 @@ class ProfileViewModel(
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _canConfirmProfile = MutableLiveData<Boolean>();
-    val canConfirmProfile: LiveData<Boolean> = _canConfirmProfile
+    private val _isProfileConfirmed = MutableLiveData<Boolean>();
+    val isProfileConfirmed: LiveData<Boolean> = _isProfileConfirmed
+
+    private val _canConfrimProfile = MutableLiveData<Boolean>();
+    val canConfirmProfile: LiveData<Boolean> = _canConfrimProfile
 
     private val _isProfileImageLoaded = MutableLiveData<Boolean>()
     val isProfileImageLoaded: LiveData<Boolean> = _isProfileImageLoaded
@@ -36,7 +40,7 @@ class ProfileViewModel(
             _isLoading.value = true
             userRepository.getUserById(firebaseCurrentUser.uid)
                 .addOnSuccessListener { dataSnapshot ->
-                    var user = dataSnapshot.toObject(User::class.java)
+                    var user = dataSnapshot.toUser()
                     if (user == null) {
                         Timber.e("Cannot fetch user from db, error!")
                         return@addOnSuccessListener
@@ -85,12 +89,18 @@ class ProfileViewModel(
         _isLoading.value = true
         userRepository.updateUser(localUserProfile).addOnSuccessListener {
             Timber.d("User ${localUserProfile.id} updated successful!")
-            _canConfirmProfile.value = true
+            _isProfileConfirmed.value = true
         }.addOnFailureListener {
             Timber.e("Error, can't update user profile")
-            _canConfirmProfile.value = false
+            _isProfileConfirmed.value = false
         }.addOnCompleteListener {
             _isLoading.value = false
         }
+    }
+
+    fun requestCanConfirmProfile(name: String, surname: String, number: String, isPrivacyPolicyConfirmed: Boolean) {
+        if (name.isNotEmpty() && surname.isNotEmpty() && number.isNotEmpty() && isPrivacyPolicyConfirmed)
+            _canConfrimProfile.value = true
+        else _canConfrimProfile.value = false
     }
 }

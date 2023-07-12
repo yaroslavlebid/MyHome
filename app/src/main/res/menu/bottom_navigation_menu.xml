@@ -4,25 +4,20 @@
         android:id="@+id/profile"
         android:enabled="true"
         android:icon="@drawable/account_circle"
-        android:title="Profile" />
+        android:title="@string/profile" />
     <item
         android:id="@+id/favorite"
         android:enabled="true"
         android:icon="@drawable/favorite"
-        android:title="Saved" />
+        android:title="@string/saved" />
     <item
         android:id="@+id/search"
         android:enabled="true"
         android:icon="@drawable/search"
-        android:title="Search" />
-    <item
-        android:id="@+id/calendar"
-        android:enabled="true"
-        android:icon="@drawable/event"
-        android:title="Calendar" />
+        android:title="@string/search" />
     <item
         android:id="@+id/map"
         android:enabled="true"
         android:icon="@drawable/map"
-        android:title="Map" />
+        android:title="@string/menu_map" />
 </menu>

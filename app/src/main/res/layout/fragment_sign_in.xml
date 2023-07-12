@@ -26,8 +26,11 @@
             android:layout_height="wrap_content"
             android:hint="@string/email"
             android:minHeight="48dp"
-            app:startIconDrawable="@drawable/mail"
-            app:errorEnabled="true">
+            app:endIconMode="custom"
+            app:endIconTint="@color/red_600"
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_error"
+            app:startIconDrawable="@drawable/mail">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -44,8 +47,9 @@
             android:hint="@string/password"
             android:minHeight="48dp"
             app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/lock"
-            app:errorEnabled="true">
+            app:errorEnabled="true"
+            app:errorIconDrawable="@drawable/ic_error"
+            app:startIconDrawable="@drawable/lock">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -65,30 +69,38 @@
 
         </com.google.android.material.textview.MaterialTextView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signIn"
-            style="@style/Theme.MyHome.AuthButtonStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="@string/sign_in_button_text">
+            android:layout_marginTop="10dp">
 
-        </com.google.android.material.button.MaterialButton>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signIn"
+                style="@style/Theme.MyHome.AuthButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in_button_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-        <ProgressBar
-            android:id="@+id/loading_indicator"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:elevation="8dp"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/white"
-            android:indeterminateTintMode="src_in"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/signIn"
-            app:layout_constraintEnd_toEndOf="@+id/signIn"
-            app:layout_constraintStart_toStartOf="@+id/signIn"
-            app:layout_constraintTop_toTopOf="@+id/signIn"/>
+            </com.google.android.material.button.MaterialButton>
+
+            <ProgressBar
+                android:id="@+id/loading_indicator"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:elevation="8dp"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/white"
+                android:indeterminateTintMode="src_in"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/signIn"
+                app:layout_constraintEnd_toEndOf="@+id/signIn"
+                app:layout_constraintStart_toStartOf="@+id/signIn"
+                app:layout_constraintTop_toTopOf="@+id/signIn" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -107,9 +119,9 @@
         android:id="@+id/social_networks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_layout">

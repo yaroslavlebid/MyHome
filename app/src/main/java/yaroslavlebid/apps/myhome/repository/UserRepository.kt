@@ -1,13 +1,10 @@
 package yaroslavlebid.apps.myhome.repository
 
 import com.google.android.gms.tasks.Task
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import yaroslavlebid.apps.myhome.data.User
-
-
-private const val COLLECTION_USERS = "users"
+import yaroslavlebid.apps.myhome.repository.firestore.COLLECTION_USERS
 
 interface UserRepository {
     fun addUserToDb(user: User) : Task<Void>

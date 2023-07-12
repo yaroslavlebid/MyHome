@@ -109,6 +109,7 @@
 
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/map_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
@@ -116,6 +117,7 @@
                 app:icon="@drawable/pin_drop" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/share_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -158,7 +160,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/advantages_label">
-
 
         </com.google.android.material.chip.ChipGroup>
 
@@ -255,6 +256,7 @@
                     android:layout_weight="1" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/selected_date_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="25.05.22 - 29.05.22"
@@ -281,6 +283,7 @@
                     android:layout_weight="1" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/selected_persons_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1 adult - 1 child"

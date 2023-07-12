@@ -36,5 +36,9 @@
         <action
             android:id="@+id/action_editProfileFragment_to_homeActivity"
             app:destination="@id/homeActivity" />
+        <argument
+            android:name="isItFirstSetup"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
 </navigation>
