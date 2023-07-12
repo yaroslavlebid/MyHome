@@ -5,8 +5,8 @@ MVVM, ConstraintLayout, Navigation Component, Koin, Firebase Auth, Firebase Stor
 
 The app is not finished.
 
-![image](https://github.com/yaroslavlebid/MyHome/assets/42187575/e2da42eb-239b-4e40-a3a7-e7ed59515fe5 | width=250) 
-![image](https://github.com/yaroslavlebid/MyHome/assets/42187575/c7f29192-dbfa-4537-ab06-b9d851d00507 | width=250)
+<img src="https://github.com/yaroslavlebid/MyHome/assets/42187575/e2da42eb-239b-4e40-a3a7-e7ed59515fe5" width="200">
+
 ![image](https://github.com/yaroslavlebid/MyHome/assets/42187575/a28f0814-1648-41c8-a8af-37e58756381d)
 ![image](https://github.com/yaroslavlebid/MyHome/assets/42187575/c2d70cf9-7681-4bc2-8606-33500c160899)
 ![image](https://github.com/yaroslavlebid/MyHome/assets/42187575/5d32d5aa-f293-49e1-b7c8-aae002af5daf)
